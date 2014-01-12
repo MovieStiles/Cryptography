@@ -1,0 +1,33 @@
+This repo is to show all of the scripts I developed over the course of the last semester taking Cryptography.
+Initially they were very rough and really only meant for my use, but over time I will clean them up (such as organizing them into actual functions)
+and post everything I used to help me crack the ciphers taught in this class.
+
+Over time, these will include:
+
+Monoalphabetic Ciphers
+	Additive Cipher (Caesar Shift)
+	Multiplicative Cipher
+	Affine Cipher
+
+Polyalphabetic Ciphers
+	Vignere Cipher
+	
+Polygraphic Ciphers
+	Hills System
+
+Public Key Cryptography
+	RSA Algorithm
+	Signature Authentication
+	Diffie - Hellman Key Exchange
+	Massey - Omura System
+
+Elliptic Curve Cryptography
+	Diffie - Hellman using Elliptic Curves
+
+Knapsack Cryptosystem
+
+As well as other small misc scripts I used such as a letter frequency counting script.
+
+Some of these include pieces of code that I found elsewhere, which I credit appropriately.
+
+This is just to help out anyone else who wishes to introduce themselves to these concepts.
