@@ -8,11 +8,12 @@
 #  4*1 = 4 and 4*14 = 56 = 4
 #  This is bad since we don't want multiple letters mapping to one letter, since this will make
 #  decryption a nightmare, if not impossible.
-#  Therefore, only certain integers are ok to use as keys.  Only integers which are coprime with 26
+#  Therefore, only certain integers are ok to use as keys.  Only integers which are relatively prime with 26
 #  make valid keys.  The list of valid keys are: 3 5 7 9 11 15 17 19 21 23 25
 #
 # Encryption Example: Key = 3 and assuming A = 0
 #  craze = 2 17 0 25 4 becomes 6 51 0 75 12 becomes 6 25 0 23 12 = gzaxm
+#  I have seen some ciphers that assume A = 1, so I will include the ability to do both.
 #
 # Decryption:
 #  To find the decryption key, you must find the multiplicative inverse of the encryption key.
@@ -21,8 +22,8 @@
 ###
 
 ###
-# Coprime
-#  Two numbers are coprime when their gcd = 1
+# Relatively Prime
+#  Two numbers are relatively prime when their gcd = 1
 ###
 
 ###
@@ -39,7 +40,7 @@
 #  For example, no possible number can be used for x such that 4*x mod 26 = 1
 ###
 
-from MultiplicativeKeys import multiplicativeKeyCount
+from MultiplicativeKeys import normAlphabetKeys
 import string
 
 ##   Finding the multiplicative inverse   ##
@@ -91,42 +92,51 @@ def modinv(a, m):
 #Parameters:
 #   message - The message to be encrypted or decrypted
 #   key - The key to use with the cipher.  Assumed to be the encryption key.
-#   encrypt - True if encrypting, False otherwise
+#   encrypt - True if encrypting, False otherwise.  True by default.
+#   aIsZero - Whether or not the index of A is assumed to be zero.  True by default.
 #
 #Return: The new message
 ##
-def multiplicativeCipherA0(message, key, encrypt = True):
+def multiplicativeCipher(message, key, encrypt = True, aIsZero = True):
     message = message.lower().replace(' ', '')
     alphabet = string.lowercase
     newMessage = ""
 
-    keyList = multiplicativeKeyCount(26)[1]
-
+    #Switch to the multiplicative inverse if decrypting
     if not encrypt:
         key = modinv(key, 26)
 
     #If a multiplicative inverse couldn't be found or if it's an invalid key
-    if key is None or not (key in keyList):
+    if key is None or not (key in normAlphabetKeys):
         return "Bad key"
 
     #Loop through the message
     for char in message:
-        index = alphabet.find(char)
-        newMessage += alphabet[(index * key) % 26]
+        #Adjust where we look depending on if A is assumed to be index 0 or 1
+        if aIsZero:
+            index = alphabet.find(char)
+            newMessage += alphabet[(index * key) % 26]
+        else:
+            index = alphabet.find(char) + 1
+            newMessage += alphabet[(index * key) % 26 - 1]
 
     return newMessage
 
 ##
-#testA0
+#test
 #Description: A small method to test the outputs of the methods in this file.
 # Specifically the ciphering method that assumes the index of A is 0.
 ##
-def testA0():
-    print multiplicativeCipherA0("This is a test message", 5)
-    print multiplicativeCipherA0("rjomomarumriummaeu", 5, False)
-    print multiplicativeCipherA0("This is a test message", 6)
+def test():
+    print multiplicativeCipher("This is a test message", 5)
+    print multiplicativeCipher("rjomomarumriummaeu", 5, False)
+    print multiplicativeCipher("This is a test message", 6)
+    print multiplicativeCipher("This is a test message", 5, True, False)
+    print multiplicativeCipher("vnsqsqevyqvmyqqeiy", 5, False, False)
 
 #Output:
 #rjomomarumriummaeu
 #thisisatestmessage
 #Bad key
+#vnsqsqevyqvmyqqeiy
+#thisisatestmessage
