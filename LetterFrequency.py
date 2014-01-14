@@ -22,7 +22,12 @@ def calcLetterFrequency(message):
 
     return Counter(frequencies).most_common()
 
-print calcLetterFrequency("Here is a test message")
+##
+#test
+#Description: A small method to test the outputs of the methods in this file.
+##
+def test():
+    print calcLetterFrequency("Here is a test message")
 
 #Output:
 #[('e', 5), ('s', 4), ('a', 2), ('t', 2), ('g', 1), ('i', 1), ('h', 1), ('m', 1), ('r', 1)]
