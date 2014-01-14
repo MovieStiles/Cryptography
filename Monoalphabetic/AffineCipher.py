@@ -32,7 +32,7 @@
 ###
 
 from MultiplicativeCipher import multiplicativeCipher
-from CeasarShift import caesarShift
+from CaesarShift import caesarShift
 
 ##
 #affineEncode
