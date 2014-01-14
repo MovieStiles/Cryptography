@@ -143,7 +143,6 @@ def findLikelyKeys(message, aIsZero = True):
     possibles = {}
 
     for charFreq in frequencies:
-        index = None
         #Move on if the letter is not one of the possible mappings of E
         if charFreq[0] not in letters:
             continue
