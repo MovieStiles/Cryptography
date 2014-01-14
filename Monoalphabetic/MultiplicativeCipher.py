@@ -125,7 +125,7 @@ def multiplicativeCipher(message, key, encrypt = True, aIsZero = True):
 
 ##
 #findLikelyKeys
-#Description: Find the top three most likely keys of a message encrypted with a
+#Description: Find up to the top five most likely keys of a message encrypted with a
 # multiplicative cipher and return the resulting messages along with the keys.
 # Takes heavy advantage of the fact that the letter E is the most common letter in English.
 #
@@ -155,7 +155,8 @@ def findLikelyKeys(message, aIsZero = True):
         #Add the key and the resulting decoded message to dictionary.
         possibles[key] = multiplicativeCipher(message, key, False, aIsZero)
 
-        if len(possibles) > 2:
+        #Keep it to the top 5 at maximum
+        if len(possibles) > 4:
             break
 
     return possibles
@@ -181,5 +182,6 @@ def test():
 #vnsqsqevyqvmyqqeiy
 #thisisatestmessage
 #Decode Key:  25    Resulting message:  jrmomoajgojsgooawg
+#Decode Key:  15    Resulting message:  plugugapkgpekggack
 #Decode Key:  5    Resulting message:  thisisatestmessage
 #Decode Key:  9    Resulting message:  zbqkqkazikzyikkami
