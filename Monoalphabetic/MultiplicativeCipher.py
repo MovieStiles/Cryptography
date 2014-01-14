@@ -41,6 +41,7 @@
 ###
 
 from MultiplicativeKeys import normAlphabetKeys
+from LetterFrequency import calcLetterFrequency
 import string
 
 ##   Finding the multiplicative inverse   ##
@@ -123,9 +124,45 @@ def multiplicativeCipher(message, key, encrypt = True, aIsZero = True):
     return newMessage
 
 ##
+#findLikelyKeys
+#Description: Find the top three most likely keys of a message encrypted with a
+# multiplicative cipher and return the resulting messages along with the keys.
+# Takes heavy advantage of the fact that the letter E is the most common letter in English.
+#
+#Parameters:
+#   message - The message to try and decrypt.
+#   aIsZero - Whether or not the index of A is assumed to be zero.  True by default.
+#
+#Return: A dictionary of the messages and keys.
+##
+def findLikelyKeys(message, aIsZero = True):
+    #The list of letters that E can become is as finite as the list of keys.
+    letters = ['o', 'y', 'i', 's', 'c', 'w', 'g', 'q', 'a', 'k', 'u']
+    #Get the list of frequencies, sorted by most frequent.
+    frequencies = calcLetterFrequency(message)
+    possibles = {}
+
+    for charFreq in frequencies:
+        index = None
+        #Move on if the letter is not one of the possible mappings of E
+        if charFreq[0] not in letters:
+            continue
+
+        #Grab the key associated with the letter and get the decoding key.
+        index = letters.index(charFreq[0])
+        key = modinv(normAlphabetKeys[index], 26)
+
+        #Add the key and the resulting decoded message to dictionary.
+        possibles[key] = multiplicativeCipher(message, key, False, aIsZero)
+
+        if len(possibles) > 2:
+            break
+
+    return possibles
+
+##
 #test
 #Description: A small method to test the outputs of the methods in this file.
-# Specifically the ciphering method that assumes the index of A is 0.
 ##
 def test():
     print multiplicativeCipher("This is a test message", 5)
@@ -134,9 +171,15 @@ def test():
     print multiplicativeCipher("This is a test message", 5, True, False)
     print multiplicativeCipher("vnsqsqevyqvmyqqeiy", 5, False, False)
 
+    for keyAndVal in findLikelyKeys("rjomomarumriummaeu").items():
+        print "Decode Key: ", keyAndVal[0], "   Resulting message: ", keyAndVal[1]
+
 #Output:
 #rjomomarumriummaeu
 #thisisatestmessage
 #Bad key
 #vnsqsqevyqvmyqqeiy
 #thisisatestmessage
+#Decode Key:  25    Resulting message:  jrmomoajgojsgooawg
+#Decode Key:  5    Resulting message:  thisisatestmessage
+#Decode Key:  9    Resulting message:  zbqkqkazikzyikkami
