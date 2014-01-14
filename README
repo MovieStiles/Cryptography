@@ -9,6 +9,7 @@ Monoalphabetic Ciphers
 	Additive Cipher (Caesar Shift)
 	Multiplicative Cipher
 	Affine Cipher
+	Keyword Cipher
 
 Polyalphabetic Ciphers
 	Vignere Cipher
