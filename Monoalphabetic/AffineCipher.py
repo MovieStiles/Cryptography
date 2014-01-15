@@ -69,7 +69,7 @@ def affineEncode(keys, message, addFirst, aIsZero):
 #
 #Return: The resulting message.
 ##
-def affineEncode(keys, message, addFirst, aIsZero):
+def affineDecode(keys, message, addFirst, aIsZero):
     #When additive is done first in encryption, multiplicative needs to be
     # done first in decryption.
     if addFirst:
