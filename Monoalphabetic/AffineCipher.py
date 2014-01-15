@@ -13,11 +13,11 @@
 #  There's certainly no reason to not do them in reverse order.
 #  Because of that this file includes support for both ways.
 #
-#  Encryption Example: Key(3, 5)
+# Encryption Example: Key(3, 5)
 #  First use the additive cipher with key 5: craze -> hwfej
 #  Then use the multiplicative cipher with key 3: hwfej -> jgzut
 #
-#  Decryption Example: Key(3, 5)
+# Decryption Example: Key(3, 5)
 #  Without knowing the encryption keys, frequency analysis would have to be done
 #  the same as when solving a multiplicative cipher.
 #  It's difficult to do on a short example such as this, but it can be assumed
