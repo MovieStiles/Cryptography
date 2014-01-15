@@ -43,7 +43,6 @@ import string
 def keywordCipher(message, keyword, encrypt = True):
     message = message.lower().replace(' ', '')
     alphabet = string.lowercase
-    newMessage = ""
 
     #First, remove repeated characters from the keyword.
     #If anyone reading this can do it faster than O(n^2), let me know.
@@ -53,13 +52,20 @@ def keywordCipher(message, keyword, encrypt = True):
     newAlpha = keyword + ''.join(sorted(set(alphabet).difference(keyword)))
 
     #Now construct the new message
-    for char in message:
-        if encrypt:
-            newMessage += newAlpha[alphabet.find(char)]
-        else:
-            newMessage += alphabet[newAlpha.find(char)]
 
-    return newMessage
+    #Normally, this would be the way to go:
+    #for char in message:
+    #    if encrypt:
+    #        newMessage += newAlpha[alphabet.find(char)]
+    #    else:
+    #        newMessage += alphabet[newAlpha.find(char)]
+    #
+    #But that's just to make what's going on more clear.  I think we can move on
+    # for effeciency's sake by now.
+    if encrypt:
+        return message.translate(string.maketrans(alphabet, newAlpha))
+    else:
+        return message.translate(string.maketrans(newAlpha, alphabet))
 
 ###
 # Another variant exists which also puts an additive cipher on top of the keyword cipher.

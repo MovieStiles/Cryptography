@@ -32,7 +32,7 @@
 ###
 
 from MultiplicativeCipher import multiplicativeCipher
-from CaesarShift import caesarShift
+from CaesarShift import caesarShiftStringOps
 
 ##
 #affineEncode
@@ -48,11 +48,11 @@ from CaesarShift import caesarShift
 ##
 def affineEncode(keys, message, addFirst, aIsZero):
     if addFirst:
-        message = caesarShift(message, keys[1])
+        message = caesarShiftStringOps(message, keys[1])
         message = multiplicativeCipher(message, keys[0], True, aIsZero)
     else:
         message = multiplicativeCipher(message, keys[1], True, aIsZero)
-        message = caesarShift(message, keys[0])
+        message = caesarShiftStringOps(message, keys[0])
 
     return message
 
@@ -76,9 +76,9 @@ def affineDecode(keys, message, addFirst, aIsZero):
         #Both of these functions assume that the key is the decryption key,
         # so that's why this function does as well.
         message = multiplicativeCipher(message, keys[1], False, aIsZero)
-        message = caesarShift(message, keys[0], False)
+        message = caesarShiftStringOps(message, keys[0], False)
     else:
-        message = caesarShift(message, keys[1], False)
+        message = caesarShiftStringOps(message, keys[1], False)
         message = multiplicativeCipher(message, keys[0], False, aIsZero)
 
     return message
