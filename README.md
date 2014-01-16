@@ -9,46 +9,46 @@ The purpose of these is too help others with introducing themselves to cryptogra
 Included Ciphers
 -------------------------------------------------
 
-- [x] Monoalphabetic Ciphers
+- Monoalphabetic Ciphers
 
-	- [x] Additive Cipher (Caesar Shift)
+	- Additive Cipher (Caesar Shift)
 	
-	- [x] Multiplicative Cipher
+	- Multiplicative Cipher
 	
-	- [x] Affine Cipher
+	- Affine Cipher
 	
-	- [x] Keyword Cipher
-
-	
-- [ ] Polyalphabetic Ciphers
-
-	- [ ] Vignere Cipher
-	
-	
--[ ]Polygraphic Ciphers
-
-	-[ ]Hills System
+	- Keyword Cipher
 
 	
-- [ ] Public Key Cryptography
+- Polyalphabetic Ciphers
 
-	- [ ] RSA Algorithm
+	- Vignere Cipher
 	
-	- [ ] Signature Authentication
 	
-	- [ ] Diffie - Hellman Key Exchange
-	
-	- [ ] Massey - Omura System
+- Polygraphic Ciphers
 
-	
-- [ ] Elliptic Curve Cryptography
-
-	- [ ] Elliptic Curves
-	
-	- [ ] Diffie - Hellman using Elliptic Curves
+	- Hills System
 
 	
-- [ ] Knapsack Cryptosystem
+- Public Key Cryptography
+
+	- RSA Algorithm
+	
+	- Signature Authentication
+	
+	- Diffie - Hellman Key Exchange
+	
+	- Massey - Omura System
+
+	
+- Elliptic Curve Cryptography
+
+	- Elliptic Curves
+	
+	- Diffie - Hellman using Elliptic Curves
+
+	
+- Knapsack Cryptosystem
 
 As well as other small misc scripts I used such as a letter frequency counting script.
 
