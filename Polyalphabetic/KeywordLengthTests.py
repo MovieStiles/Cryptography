@@ -5,6 +5,7 @@
 ###
 
 import re
+from IndexOfCoincidence import findIndexOfCoincidence
 
 ###############################################################################
 ##                      Kasiski Test Code Section                            ##
@@ -121,3 +122,41 @@ def kasiskiExamination(ciphertext):
 
 ##                    End Kasiski Test Code Section                          ##
 ###############################################################################
+
+##
+#estimateLengthFromIC
+#Description: Given the length of a message and its index of coincidence, use
+# the following equation to estimate the length of the keyword used to encrypt it:
+#                    0.027n
+#  length = --------------------------
+#           (n - 1)IC - 0.038n + 0.065
+#
+#Parameters:
+#   mLength - The length of the encrypted message
+#   ic - The index of the coincidence of the message
+#
+#Return:  The result of the equation rounded to 3 decimal places.
+##
+def estimateLengthFromIC(mLength, ic):
+    denominator = (mLength - 1)*ic - 0.038*mLength + 0.065
+    return round((0.027 * mLength) / denominator, 3)
+
+##
+#estimateLengthFromIC
+#Description: Given the length of a message and its index of coincidence, use
+# the following equation to estimate the length of the keyword used to encrypt it:
+#                    0.027n
+#  length = --------------------------
+#           (n - 1)IC - 0.038n + 0.065
+#
+#Parameters:
+#   cipherText - The encrypted message
+#
+#Return:  The result of the equation rounded to 3 decimal places.
+##
+def estimateLengthFromIC(cipherText):
+    mLength = len(cipherText.replace(' ', ''))
+    ic = findIndexOfCoincidence(cipherText)
+
+    denominator = (mLength - 1)*ic - 0.038*mLength + 0.065
+    return round((0.027 * mLength) / denominator, 3)

@@ -30,7 +30,5 @@ def findIndexOfCoincidence(message):
     for charFreq in frequencies:
         IC += charFreq[1]**2
 
-    #Limit the IC to five decimal places.  No need for more.
-    return "{0:.5f}".format(IC / len(message)**2)
-
-print findIndexOfCoincidence("ZPM XFC XEZ TGE EPU GIP YWF LHH UZG EUZ MEO OQM DSN LFE IQB EIA BDZ VFD BJS ZGX IPA ESO YRU SYG IPY WFH UWB DBE SAW LFO XES NBI FDY EOO NLF MLI BOQ ETQ LIT SZV PXN LFM UOF CS")
+    #Limit the IC to four decimal places.  No need for more.
+    return round(IC / len(message)**2, 4)
