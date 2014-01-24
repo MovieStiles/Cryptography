@@ -19,7 +19,7 @@
 #  To encrypt, we shift each letter by distance x-1 where x is the position of the keyword
 #  letter in the alphabet.
 #
-#  Ciphertext	F	L	N	E	C	A	I	E	L	I
+#  Ciphertext	F	L	N	I	C	A	I	E	L	I
 #
 # Decryption:
 #  To decrypt, we first need to ask if this is even a Vignere cipher in the first place.
@@ -33,3 +33,27 @@
 #  These tests are outlined in KeywordLengthTests.py.
 ###
 
+import string
+
+##
+#vignereCipherEncrypt
+#Description: Given a plaintext message and a keyword, use
+# the Vignere Cipher to encrypt the message.
+#
+#Parameters:
+#   plainText - The message to encrypt
+#   keyword - The keyword used to encrypt the message
+#
+#Return: The encrypted message
+##
+def vignereCipherEncrypt(plainText, keyword):
+    keyword = keyword.lower().replace(' ', '')
+    cipherText = ""
+
+    #Loop through the message and shift each letter based on the keyword
+    for i in range(0, len(plainText)):
+        #Take the ordinal value of the characters, add them together, then convert the sum
+        # back to a character.
+        cipherText += chr((ord(plainText[i]) + ord(keyword[i % len(keyword)])) % 26 + 85)
+
+    return cipherText
