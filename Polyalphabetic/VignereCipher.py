@@ -57,3 +57,63 @@ def vignereCipherEncrypt(plainText, keyword):
         cipherText += chr((ord(plainText[i]) + ord(keyword[i % len(keyword)])) % 26 + 85)
 
     return cipherText
+
+##
+#vignereCipherDecrypt
+#Description: Given a ciphertext message and a keyword, use
+# the Vignere Cipher to decrypt the message.
+#
+#Parameters:
+#   cipherText - The message to decrypt
+#   keyword - The keyword used to decrypt the message
+#
+#Return: The decrypted message
+##
+def vignereCipherDecrypt(cipherText, keyword):
+    keyword = keyword.lower().replace(' ', '')
+    plainText = ""
+
+    #Loop through the message and shift each letter based on the keyword
+    for i in range(0, len(cipherText)):
+        #Take the ordinal value of the characters, add them together, then convert the sum
+        # back to a character.
+        plainText += chr((ord(cipherText[i]) - ord(keyword[i % len(keyword)])) % 26 + 97)
+
+    return plainText
+
+##
+#messageSplit
+#Description: Given a message and a keyword length, split the message
+# into a group of submessages equal to the keyword length.
+#
+#Parameters:
+#   message - The message to split
+#   keywordLength - The length of the keyword in a Vignere Cipher.
+#
+#Return: The list of submessages
+##
+def messageSplit(message, keywordLength):
+    subMessages = []
+    length = len(message)
+
+    for i in range(0, keywordLength):
+        tempString = ""
+        for j in range(0, length):
+            index = j * keywordLength + i
+            if index >= length:
+                break
+
+            tempString += message[index]
+
+        if len(tempString) > 0:
+            subMessages.append(tempString)
+
+    return subMessages
+
+def test():
+    print vignereCipherEncrypt("bluecheese", "eat")
+    print vignereCipherDecrypt(vignereCipherEncrypt("bluecheese", "eat"), "eat")
+
+#Output:
+#flnicaieli
+#bluecheese
