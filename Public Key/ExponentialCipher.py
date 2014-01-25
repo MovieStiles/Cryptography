@@ -1,4 +1,5 @@
 from fractions import gcd
+from PrimeMath import isPrime
 import string
 
 alphabet = string.lowercase()
@@ -19,6 +20,9 @@ alphabet = string.lowercase()
 #Return: The resulting ciphertext.
 ##
 def exponentialCipherEncode(plaintext, key, p, mode):
+    if not isPrime(p):
+        print "ERROR: exponentialCipherEncode: Third argument must be a prime number."
+        return
     if gcd(key, p) != 1:
         print "ERROR: exponentialCipherEncode: Key of ", key, " is not valid."
         return

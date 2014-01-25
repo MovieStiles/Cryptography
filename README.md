@@ -40,3 +40,4 @@ Some of these include pieces of code that I found elsewhere, which I credit appr
 
 * Index of Coincidence
 * Letter Frequency Analysis
+* Prime Math
