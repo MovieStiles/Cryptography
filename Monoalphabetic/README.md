@@ -87,6 +87,7 @@ A keyword cipher is very similar to caesar shift, except instead of shifting the
 
 Let W be a word in plaintext.
 We can define a keyword cipher with key W as follows:
+
 1. Rewrite W without duplicate letters
 2. Write the reduced keyword letter for letter beneath the plaintext alphabet.
 3. Write remaining letters in alphabetical order.
@@ -115,6 +116,7 @@ In this case, the cipher is as follows:
 
 Let W be a word in plaintext and let X be a letter in plaintext alphabet.
 We can define a keyword cipher with key(W, X) as follows:
+
 1. Rewrite W without duplicate letters
 2. Write a reduced keyword letter for letter beneath the plaintext alphabet stating at X.
 3. Write remaining letters in alphabetical order.
