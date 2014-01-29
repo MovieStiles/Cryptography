@@ -1,6 +1,20 @@
-##Caesar Shift
+#Monoalphabetic Ciphers
 
-A Caesar Shift, otherwise known as an Additive Cipher, takes the letters in a message and shifts them through the alphabet by some integer amount.
+A monoalphabetic cipher is a type of substitution cipher where each letter in the message is replaced with another letter based on some fixed pattern.
+
+Below are explanations for each of the ciphers implemented in this folder.  These are meant for people are want to learn how these ciphers work, and likewise the code is meant to be friendly to the methodology of the cipher.
+
+* Contents
+   * [Additive Cipher (Caesar Shift)](https://github.com/MovieStiles/Cryptography/tree/master/Monoalphabetic#caesar-shift)
+   * [Multiplicative Cipher](https://github.com/MovieStiles/Cryptography/tree/master/Monoalphabetic#multiplicative-cipher)
+   * [Affine Cipher](https://github.com/MovieStiles/Cryptography/tree/master/Monoalphabetic#affine-cipher)
+   * [Keyword Cipher](https://github.com/MovieStiles/Cryptography/tree/master/Monoalphabetic#keyword-cipher)
+   * [Keyword Cipher Variant (Keyed Caesar Shift)](https://github.com/MovieStiles/Cryptography/tree/master/Monoalphabetic#keyword-cipher-variant-keyed-caesar-shift)
+   * [Other Definitions](https://github.com/MovieStiles/Cryptography/tree/master/Monoalphabetic#other-definitions)
+
+##Additive Cipher (Caesar Shift)
+
+A Caesar Shift, otherwise known as an Additive Cipher, takes the letters in a message and shifts the letters through the alphabet by some integer amount.
 
 ####Encryption Example: Key = 4
 
@@ -10,7 +24,7 @@ Any number greater than the index of Z loops back around, otherwise known as mod
 
 ####Decryption
 
-Decryption is easy.  Simply subtract the encryption key instead of adding. You can also add the additive inverse of the key.
+Decryption is easy.  Simply subtract the encryption key instead of adding. You can also add the [additive inverse](https://github.com/MovieStiles/Cryptography/tree/master/Monoalphabetic#additive-inverse) of the key.
 From the previous example, -4 or 22 would be the decryption key.
 
 ##Multiplicative Cipher
@@ -21,7 +35,7 @@ Because all of these numbers are mod 26, that means that one result can be share
 4*1 = 4 and 4*14 = 56 = 4
 
 This is bad since we don't want multiple letters mapping to one letter, since this will make decryption a nightmare, if not impossible.
-Therefore, only certain integers are ok to use as keys.  Only integers which are relatively prime with 26 make valid keys.  The list of valid keys are: 3 5 7 9 11 15 17 19 21 23 25
+Therefore, only certain integers are ok to use as keys.  Only integers which are [relatively prime](https://github.com/MovieStiles/Cryptography/tree/master/Monoalphabetic#relatively-prime) with 26 make valid keys.  The list of valid keys are: 3 5 7 9 11 15 17 19 21 23 25
 
 ####Encryption Example: Key = 3 and assuming A = 0
 
@@ -31,7 +45,7 @@ I have seen some ciphers that assume A = 1, so I will include the ability to do 
 
 ####Decryption
 
-To find the decryption key, you must find the multiplicative inverse of the encryption key. The multiplicative inverse of 3 is 9.
+To find the decryption key, you must find the [multiplicative inverse](https://github.com/MovieStiles/Cryptography/tree/master/Monoalphabetic#multiplicative-inverse) of the encryption key. The multiplicative inverse of 3 is 9.
 
 gzaxm = 6 25 0 23 12 becomes 54 225 0 207 108 becomes 2 17 0 25 4 = craze
 
@@ -41,6 +55,7 @@ An affine cipher combines both an additive and multiplicative cipher in order to
 
 In order to encrypt a message, you choose two keys, (x, y):  One, y, for the additive cipher and one, x, for the multiplicative.
 First you put the message through the additive cipher, then you put it through the multiplicative cipher.
+
 In other words, for each letter with index i:
 The encrypted letter e is equal to x(i + y)
 
