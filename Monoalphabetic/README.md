@@ -94,8 +94,8 @@ We can define a keyword cipher with key W as follows:
 4. Perform the same letter substitution you should be used to by now.
 
 For example: Key = fox
-A   B   C   D   E   F   G   H   I   J   K   L
-f   o   x   a   b   c   d   e   g   h   i   j...
+A  B  C  D  E  F  G  H  I  J  K  L...
+f  o  x  a  b  c  d  e  g  h  i  j...  
 
 ###Encryption Example: Key = crazytrain
 
