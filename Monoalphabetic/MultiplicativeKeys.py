@@ -1,7 +1,3 @@
-###
-# For any definitions you may need in this file, look in MultiplicativeCipher.py
-###
-
 from fractions import gcd
 
 ##
