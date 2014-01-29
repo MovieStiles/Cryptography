@@ -124,12 +124,9 @@ def kasiskiExamination(ciphertext):
 ###############################################################################
 
 ##
-#estimateLengthFromIC
-#Description: Given the length of a message and its index of coincidence, use
-# the following equation to estimate the length of the keyword used to encrypt it:
-#                    0.027n
-#  length = --------------------------
-#           (n - 1)IC - 0.038n + 0.065
+#friedmanTest
+#Description: Given the length of a message and its index of coincidence,
+# estimate the length of the keyword used to encrypt it using the Friedman test.
 #
 #Parameters:
 #   mLength - The length of the encrypted message
@@ -137,24 +134,21 @@ def kasiskiExamination(ciphertext):
 #
 #Return:  The result of the equation rounded to 3 decimal places.
 ##
-def estimateLengthFromIC(mLength, ic):
+def friedmanTest(mLength, ic):
     denominator = (mLength - 1)*ic - 0.038*mLength + 0.065
     return round((0.027 * mLength) / denominator, 3)
 
 ##
-#estimateLengthFromIC
-#Description: Given the length of a message and its index of coincidence, use
-# the following equation to estimate the length of the keyword used to encrypt it:
-#                    0.027n
-#  length = --------------------------
-#           (n - 1)IC - 0.038n + 0.065
+#friedmanTest
+#Description: Given a message, estimate the length of the keyword used to encrypt it
+# using the Friedman test.
 #
 #Parameters:
 #   cipherText - The encrypted message
 #
 #Return:  The result of the equation rounded to 3 decimal places.
 ##
-def estimateLengthFromIC(cipherText):
+def friedmanTest(cipherText):
     mLength = len(cipherText.replace(' ', ''))
     ic = findIndexOfCoincidence(cipherText)
 

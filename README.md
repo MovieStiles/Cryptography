@@ -44,7 +44,9 @@ The index of coincidence (IC) is defined to be the probability of two letters se
 This varies from language to language, so it offers a very quick and easy way to tell if some ciphertext has a frequency similar to the original language, and therefore used a
 monoalphatetic cipher, or far enough away from the expected number to have undergone transformation with a polyalphabetic cipher.
 
-English Language IC = 0.065      26 letter alphabet with all same frequency = 0.038
+English Language IC = 0.065
+
+26 letter alphabet with all same frequency = 0.038
 
 * Letter Frequency Analysis
 * Prime Math
