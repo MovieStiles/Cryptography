@@ -127,9 +127,7 @@ And so on.
 
 ####Encryption Example: Key = crazytrain
 
-1. crazytrain -> crazytin
-
-2.
+crazytrain -> crazytin
 
 Table | | | | | | | | | |
 --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---
@@ -157,14 +155,12 @@ We can define a keyword cipher with key(W, X) as follows:
 
 ####Encryption Example: Key = (crazytrain, d)
 
-1. crazytrain -> crazytin
+crazytrain -> crazytin
 
-2.
-
-Table | | | | | | | | | |
---- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---
-Plaintext Letter | D | E | F | G | H | I | J | K | L | M
-Maps To | c | r | a | z | y | t | i | n | b | d
+| Table | | | | | | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---
+| Plaintext Letter | D | E | F | G | H | I | J | K | L | M
+| Maps To | c | r | a | z | y | t | i | n | b | d
 
 ##Other Definitions
 
