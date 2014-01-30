@@ -4,13 +4,14 @@ A monoalphabetic cipher is a type of substitution cipher where each letter in th
 
 Below are explanations for each of the ciphers implemented in this folder.  These are meant for people are want to learn how these ciphers work, and likewise the code is meant to be friendly to the methodology of the cipher.
 
-* Contents
+* Ciphers
    * [Additive Cipher (Caesar Shift)](https://github.com/MovieStiles/Cryptography/tree/master/Monoalphabetic#caesar-shift)
    * [Multiplicative Cipher](https://github.com/MovieStiles/Cryptography/tree/master/Monoalphabetic#multiplicative-cipher)
    * [Affine Cipher](https://github.com/MovieStiles/Cryptography/tree/master/Monoalphabetic#affine-cipher)
    * [Keyword Cipher](https://github.com/MovieStiles/Cryptography/tree/master/Monoalphabetic#keyword-cipher)
    * [Keyword Cipher Variant (Keyed Caesar Shift)](https://github.com/MovieStiles/Cryptography/tree/master/Monoalphabetic#keyword-cipher-variant-keyed-caesar-shift)
-   * [Other Definitions](https://github.com/MovieStiles/Cryptography/tree/master/Monoalphabetic#other-definitions)
+
+* [Other Definitions](https://github.com/MovieStiles/Cryptography/tree/master/Monoalphabetic#other-definitions)
 
 ##Additive Cipher (Caesar Shift)
 
@@ -18,7 +19,13 @@ A Caesar Shift, otherwise known as an Additive Cipher, takes the letters in a me
 
 ####Encryption Example: Key = 4
 
-craze = 2 17 0 25 4 becomes 6 21 4 29 8 becomes 6 21 4 3 8 = gvedi
+Table | | | | |
+--- | --- | --- | --- | --- | ---
+Plaintext | c | r | a | z | e
+Numeric form | 2 | 17 | 0 | 25 | 4
+Shift 4 | 6 | 21 | 4 | 29 | 8
+Mod 26 | 6 | 21 | 4 | 3 | 8
+Ciphertext | g | v | e | d | i
 
 Any number greater than the index of Z loops back around, otherwise known as mod 26.
 
@@ -26,6 +33,14 @@ Any number greater than the index of Z loops back around, otherwise known as mod
 
 Decryption is easy.  Simply subtract the encryption key instead of adding. You can also add the [additive inverse](https://github.com/MovieStiles/Cryptography/tree/master/Monoalphabetic#additive-inverse) of the key.
 From the previous example, -4 or 22 would be the decryption key.
+
+Table | | | | |
+--- | --- | --- | --- | --- | ---
+Ciphertext | g | v | e | d | i
+Numeric form | 6 | 21 | 4 | 3 | 8
+Shift 22 | 28 | 43 | 26 | 25 | 30
+Mod 26 | 2 | 17 | 0 | 25 | 4
+Plaintext | c | r | a | z | e
 
 ##Multiplicative Cipher
 
@@ -39,7 +54,13 @@ Therefore, only certain integers are ok to use as keys.  Only integers which are
 
 ####Encryption Example: Key = 3 and assuming A = 0
 
-craze = 2 17 0 25 4 becomes 6 51 0 75 12 becomes 6 25 0 23 12 = gzaxm
+Table | | | | |
+--- | --- | --- | --- | --- | ---
+Plaintext | c | r | a | z | e
+Numeric form | 2 | 17 | 0 | 25 | 4
+Time 3 | 6 | 51 | 0 | 75 | 12
+Mod 26 | 6 | 25 | 0 | 23 | 12
+Ciphertext | g | z | a | x | m
 
 I have seen some ciphers that assume A = 1, so I will include the ability to do both.
 
@@ -47,7 +68,13 @@ I have seen some ciphers that assume A = 1, so I will include the ability to do 
 
 To find the decryption key, you must find the [multiplicative inverse](https://github.com/MovieStiles/Cryptography/tree/master/Monoalphabetic#multiplicative-inverse) of the encryption key. The multiplicative inverse of 3 is 9.
 
-gzaxm = 6 25 0 23 12 becomes 54 225 0 207 108 becomes 2 17 0 25 4 = craze
+Table | | | | |
+--- | --- | --- | --- | --- | ---
+Ciphertext | g | z | a | x | m
+Numeric form | 6 | 25 | 0 | 23 | 12
+Time 9 | 54 | 225 | 0 | 207 | 108
+Mod 26 | 2 | 17 | 0 | 25 | 4
+Plaintext | c | r | a | z | e
 
 ##Affine Cipher
 
@@ -91,12 +118,22 @@ We can define a keyword cipher with key W as follows:
 
 For example: Key = fox
 
-A -> f, B -> o, C -> x, D -> a, E -> b, F -> c, G -> d, and so on.
+Table | | | | | | |
+--- | --- | --- | --- | --- | --- | --- | ---
+Plaintext Letter | A | B | C | D | E | F | G
+Maps To | f | o | x | a | b | c | d
+
+And so on.
 
 ####Encryption Example: Key = crazytrain
 
 1. crazytrain -> crazytin
-2. A -> c   B -> r   C -> a.... you get the idea.
+2.
+
+Table | | | | | | | | | |
+--- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---
+Plaintext Letter | A | B | C | D | E | F | G | H | I | J
+Maps To | c | r | a | z | y | t | i | n | b | d
 
 Now to actually encrypt a word with this:
 "Here is a test message for your enjoyment" -> "nymybocpyopgyoociytjmwjqmyhdjwgyhp"
@@ -120,7 +157,12 @@ We can define a keyword cipher with key(W, X) as follows:
 ####Encryption Example: Key = (crazytrain, d)
 
 1. crazytrain -> crazytin
-2. D -> c   E -> r   F -> a, and so on.
+2.
+
+Table | | | | | | | | | |
+--- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---
+Plaintext Letter | D | E | F | G | H | I | J | K | L | M
+Maps To | c | r | a | z | y | t | i | n | b | d
 
 ##Other Definitions
 
