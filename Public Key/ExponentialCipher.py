@@ -99,6 +99,10 @@ def splitMessageAndConvert(message, subSize, mode, aIsZero = True):
 
         i += 1
 
+    #Pad the last piece with zeroes if need be.
+    if len(messagePieces[-1]) != subSize:
+        messagePieces[-1] = messagePieces[-1].ljust(subSize, '0')
+
     return messagePieces
 
 ##
@@ -108,7 +112,7 @@ def splitMessageAndConvert(message, subSize, mode, aIsZero = True):
 #
 #Parameters:
 #   plaintext - The message to encode
-#   key - The key to encode the message with.  Must satisfy the equation: gcd(key, p) = 1
+#   key - The key to encode the message with.  Must satisfy the equation: gcd(key, p-1) = 1
 #   p - The prime number to mod the message by.
 #   mode - The mode to encode the message with.
 #       0 - Convert letters to their alphabetic indexes with A = 0.
@@ -124,16 +128,22 @@ def exponentialCipherEncode(plaintext, key, p, mode, q = None, aIsZero = True):
         return
 
     if q is None:
-        if gcd(key, p) != 1:
+        if gcd(key, p-1) != 1:
             print "ERROR: exponentialCipherEncode: Key of ", key, " is not valid."
             return
     else:
         if not isPrime(q):
             print "ERROR: exponentialCipherEncode: Fifth argument must be a prime number."
             return
+        if gcd(key, (p-1)*(q-1)) != 1:
+            print "ERROR: exponentialCipherEncode: Key of ", key, " is not valid."
+            return
         p = p*q
 
-    plaintext.lower().replace(' ', '')
+    #If we're using the alphabetic indices, we need to clean the message
+    if mode == 0:
+        plaintext.lower()
+        plaintext = "".join(c for c in plaintext if c.isalpha())
 
     #Calculate the size of each submessage
     subSize = calcSubMessageSize(p, mode)
@@ -148,8 +158,8 @@ def exponentialCipherEncode(plaintext, key, p, mode, q = None, aIsZero = True):
         c = str(pow(intPiece, key) % p)
 
         #Add leading zeroes until the string is the same size as before
-        while len(c) < len(piece):
-            c = "0" + c
+        if len(c) < len(piece):
+            c = c.zfill(len(piece))
 
         ciphertext += c
 
