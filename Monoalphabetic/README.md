@@ -35,7 +35,7 @@ Decryption is easy.  Simply subtract the encryption key instead of adding. You c
 From the previous example, -4 or 22 would be the decryption key.
 
 Table | | | | |
---- | --- | --- | --- | --- | ---
+--- | --- | --- | --- | --- | --- | ---
 Ciphertext | g | v | e | d | i
 Numeric form | 6 | 21 | 4 | 3 | 8
 Shift 22 | 28 | 43 | 26 | 25 | 30
@@ -54,7 +54,7 @@ Therefore, only certain integers are ok to use as keys.  Only integers which are
 
 ####Encryption Example: Key = 3 and assuming A = 0
 
-Table | | | | |
+Table | | | | | |
 --- | --- | --- | --- | --- | ---
 Plaintext | c | r | a | z | e
 Numeric form | 2 | 17 | 0 | 25 | 4
@@ -68,7 +68,7 @@ I have seen some ciphers that assume A = 1, so I will include the ability to do 
 
 To find the decryption key, you must find the [multiplicative inverse](https://github.com/MovieStiles/Cryptography/tree/master/Monoalphabetic#multiplicative-inverse) of the encryption key. The multiplicative inverse of 3 is 9.
 
-Table | | | | |
+Table | | | | | |
 --- | --- | --- | --- | --- | ---
 Ciphertext | g | z | a | x | m
 Numeric form | 6 | 25 | 0 | 23 | 12
@@ -128,6 +128,7 @@ And so on.
 ####Encryption Example: Key = crazytrain
 
 1. crazytrain -> crazytin
+
 2.
 
 Table | | | | | | | | | |
@@ -157,6 +158,7 @@ We can define a keyword cipher with key(W, X) as follows:
 ####Encryption Example: Key = (crazytrain, d)
 
 1. crazytrain -> crazytin
+
 2.
 
 Table | | | | | | | | | |
