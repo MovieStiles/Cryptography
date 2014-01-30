@@ -11,20 +11,21 @@ Some of these include pieces of code that I found elsewhere, which I credit appr
 
 ##Included Ciphers
 
-* Monoalphabetic Ciphers (*COMPLETE*)
-   * Additive Cipher (Caesar Shift) (*COMPLETE*)
-   * Multiplicative Cipher (*COMPLETE*)
-   * Affine Cipher (*COMPLETE*)
-   * Keyword Cipher (*COMPLETE*)
+* [Monoalphabetic Ciphers](https://github.com/MovieStiles/Cryptography/tree/master/Monoalphabetic#monoalphabetic-ciphers)
+   * [Additive Cipher (Caesar Shift)](https://github.com/MovieStiles/Cryptography/tree/master/Monoalphabetic#caesar-shift)
+   * [Multiplicative Cipher](https://github.com/MovieStiles/Cryptography/tree/master/Monoalphabetic#multiplicative-cipher)
+   * [Affine Cipher](https://github.com/MovieStiles/Cryptography/tree/master/Monoalphabetic#affine-cipher)
+   * [Keyword Cipher](https://github.com/MovieStiles/Cryptography/tree/master/Monoalphabetic#keyword-cipher)
+   * [Keyword Cipher Variant (Keyed Caesar Shift)](https://github.com/MovieStiles/Cryptography/tree/master/Monoalphabetic#keyword-cipher-variant-keyed-caesar-shift)
 
-* Polyalphabetic Ciphers (*COMPLETE*)
-   * Vignere Cipher (*COMPLETE*)
+* [Polyalphabetic Ciphers](https://github.com/MovieStiles/Cryptography/tree/master/Polyalphabetic#polyalphabetic-ciphers)
+   * [Vignere Cipher](https://github.com/MovieStiles/Cryptography/tree/master/Polyalphabetic#vignere-cipher)
 
 * Polygraphic Ciphers
    * Hills System
 
 * Public Key Cryptography
-   * Exponentiation Cipher (*COMPLETE*)
+   * Exponentiation Cipher
    * RSA Algorithm
    * Signature Authentication
    * Diffie - Hellman Key Exchange
