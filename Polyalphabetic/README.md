@@ -31,7 +31,7 @@ As for finding that keyword length...well, that's going to take a lot more work.
 ##Kasiski Test
 
 | Table | | | | | | | | | | | | | | | | | | |
-| ----- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Plaintext | c | h | e | e | s | e | c | h | e | e | s | e | c | h | e | e | s | e |
 | Keyword | b | l | u | e | b | l | u | e | b | l | u | e | b | l | u | e | b | l |
 | Ciphertext | **D** | **S** | **Y** | **I** | **T** | **P** | W | L | F | P | M | I | **D** | **S** | **Y** | **I** | **T** | **P** |
