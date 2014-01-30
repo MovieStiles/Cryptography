@@ -30,11 +30,11 @@ As for finding that keyword length...well, that's going to take a lot more work.
 
 ##Kasiski Test
 
-Table | | | | | | | | | | | | | | | | | |
---- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---
-Plaintext | c | h | e | e | s | e | c | h | e | e | s | e | c | h | e | e | s | e
-Keyword | b | l | u | e | b | l | u | e | b | l | u | e | b | l | u | e | b | l
-Ciphertext | **D** | **S** | **Y** | **I** | **T** | **P** | W | L | F | P | M | I | **D** | **S** | **Y** | **I** | **T** | **P**
+| Table | | | | | | | | | | | | | | | | | | |
+| ----- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Plaintext | c | h | e | e | s | e | c | h | e | e | s | e | c | h | e | e | s | e |
+| Keyword | b | l | u | e | b | l | u | e | b | l | u | e | b | l | u | e | b | l |
+| Ciphertext | **D** | **S** | **Y** | **I** | **T** | **P** | W | L | F | P | M | I | **D** | **S** | **Y** | **I** | **T** | **P** |
 
 If a string of characters appears repeatedly in a ciphertext message, it is possible (though not certain) that the distance between the occurrences is a multiple of the keyword.  We see repetition in the ciphertext because the keyword synchronizes with the plaintext again.  While this example is rather artificial, given a lengthy enough message it’s reasonable to think that this could happen with repeated trigraphs.
 In this case, the distance between the two repitions is 12 (from the start of one to the start of the other), which is indeed a multiple of our key length of 4.

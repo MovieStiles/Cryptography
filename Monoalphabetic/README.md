@@ -19,13 +19,13 @@ A Caesar Shift, otherwise known as an Additive Cipher, takes the letters in a me
 
 ####Encryption Example: Key = 4
 
-Table | | | | |
---- | --- | --- | --- | --- | ---
-Plaintext | c | r | a | z | e
-Numeric form | 2 | 17 | 0 | 25 | 4
-Shift 4 | 6 | 21 | 4 | 29 | 8
-Mod 26 | 6 | 21 | 4 | 3 | 8
-Ciphertext | g | v | e | d | i
+| Table | | | | | |
+| --- | --- | --- | --- | --- | --- |
+| Plaintext | c | r | a | z | e |
+| Numeric form | 2 | 17 | 0 | 25 | 4 |
+| Shift 4 | 6 | 21 | 4 | 29 | 8 |
+| Mod 26 | 6 | 21 | 4 | 3 | 8 |
+| Ciphertext | g | v | e | d | i |
 
 Any number greater than the index of Z loops back around, otherwise known as mod 26.
 
@@ -34,13 +34,13 @@ Any number greater than the index of Z loops back around, otherwise known as mod
 Decryption is easy.  Simply subtract the encryption key instead of adding. You can also add the [additive inverse](https://github.com/MovieStiles/Cryptography/tree/master/Monoalphabetic#additive-inverse) of the key.
 From the previous example, -4 or 22 would be the decryption key.
 
-Table | | | | |
---- | --- | --- | --- | --- | --- | ---
-Ciphertext | g | v | e | d | i
-Numeric form | 6 | 21 | 4 | 3 | 8
-Shift 22 | 28 | 43 | 26 | 25 | 30
-Mod 26 | 2 | 17 | 0 | 25 | 4
-Plaintext | c | r | a | z | e
+| Table | | | | | |
+| --- | --- | --- | --- | --- | --- |
+| Ciphertext | g | v | e | d | i |
+| Numeric form | 6 | 21 | 4 | 3 | 8 |
+| Shift 22 | 28 | 43 | 26 | 25 | 30 |
+| Mod 26 | 2 | 17 | 0 | 25 | 4 |
+| Plaintext | c | r | a | z | e |
 
 ##Multiplicative Cipher
 
@@ -54,13 +54,13 @@ Therefore, only certain integers are ok to use as keys.  Only integers which are
 
 ####Encryption Example: Key = 3 and assuming A = 0
 
-Table | | | | | |
---- | --- | --- | --- | --- | ---
-Plaintext | c | r | a | z | e
-Numeric form | 2 | 17 | 0 | 25 | 4
-Time 3 | 6 | 51 | 0 | 75 | 12
-Mod 26 | 6 | 25 | 0 | 23 | 12
-Ciphertext | g | z | a | x | m
+| Table | | | | | |
+| --- | --- | --- | --- | --- | --- |
+| Plaintext | c | r | a | z | e |
+| Numeric form | 2 | 17 | 0 | 25 | 4 |
+| Times 3 | 6 | 51 | 0 | 75 | 12 |
+| Mod 26 | 6 | 25 | 0 | 23 | 12 |
+| Ciphertext | g | z | a | x | m |
 
 I have seen some ciphers that assume A = 1, so I will include the ability to do both.
 
@@ -68,13 +68,13 @@ I have seen some ciphers that assume A = 1, so I will include the ability to do 
 
 To find the decryption key, you must find the [multiplicative inverse](https://github.com/MovieStiles/Cryptography/tree/master/Monoalphabetic#multiplicative-inverse) of the encryption key. The multiplicative inverse of 3 is 9.
 
-Table | | | | | |
---- | --- | --- | --- | --- | ---
-Ciphertext | g | z | a | x | m
-Numeric form | 6 | 25 | 0 | 23 | 12
-Time 9 | 54 | 225 | 0 | 207 | 108
-Mod 26 | 2 | 17 | 0 | 25 | 4
-Plaintext | c | r | a | z | e
+| Table | | | | | |
+| --- | --- | --- | --- | --- | --- |
+| Ciphertext | g | z | a | x | m |
+| Numeric form | 6 | 25 | 0 | 23 | 12 |
+| Times 9 | 54 | 225 | 0 | 207 | 108 |
+| Mod 26 | 2 | 17 | 0 | 25 | 4 |
+| Plaintext | c | r | a | z | e |
 
 ##Affine Cipher
 
@@ -118,10 +118,10 @@ We can define a keyword cipher with key W as follows:
 
 For example: Key = fox
 
-Table | | | | | | |
---- | --- | --- | --- | --- | --- | --- | ---
-Plaintext Letter | A | B | C | D | E | F | G
-Maps To | f | o | x | a | b | c | d
+|Table | | | | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Plaintext Letter | A | B | C | D | E | F | G |
+| Maps To | f | o | x | a | b | c | d |
 
 And so on.
 
@@ -129,10 +129,10 @@ And so on.
 
 crazytrain -> crazytin
 
-Table | | | | | | | | | |
---- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---
-Plaintext Letter | A | B | C | D | E | F | G | H | I | J
-Maps To | c | r | a | z | y | t | i | n | b | d
+| Table | | | | | | | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Plaintext Letter | A | B | C | D | E | F | G | H | I | J |
+| Maps To | c | r | a | z | y | t | i | n | b | d |
 
 Now to actually encrypt a word with this:
 "Here is a test message for your enjoyment" -> "nymybocpyopgyoociytjmwjqmyhdjwgyhp"
