@@ -7,7 +7,7 @@ If Alice wants to send a message to Bob, Alice encrypts the message using Bob's 
 A very large part of why this works is because the math is done with really really large numbers, meaning that the time it would take to crack the encryption is so insanely big that it's not worth trying.
 
 * Ciphers
-   Exponential Cipher
+  * [Exponential Cipher](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#exponential-cipher)
 
 ##Exponential Cipher
 
@@ -57,7 +57,7 @@ And there's our original numbers which we can easily translate from ASCII:  Hell
 
 ####Afterthought
 
-If you head the top definition of public key cryptography, you'll no doubt notice on glaring problem with this cipher: It is not actually public key cryptography.
+If you read the top definition of public key cryptography, you'll no doubt notice on glaring problem with this cipher: It is not actually public key cryptography.
 
 The problem is that the decryption key, or private key, is far too easy to calculate once you know the encryption key, or public key.  I chose to include it here because it provides a good introduction to the type of methodology we can expect in the ciphers to come, including the next one: The RSA Algorithm.
 

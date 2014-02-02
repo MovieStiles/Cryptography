@@ -25,8 +25,8 @@ Some of these include pieces of code that I found elsewhere, which I credit appr
 * Polygraphic Ciphers
    * Hills System
 
-* Public Key Cryptography
-   * Exponential Cipher
+* [Public Key Cryptography](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#public-key-cryptography)
+   * [Exponential Cipher](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#exponential-cipher)
    * RSA Algorithm
    * Signature Authentication
    * Diffie - Hellman Key Exchange
