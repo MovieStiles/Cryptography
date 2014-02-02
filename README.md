@@ -27,7 +27,7 @@ Some of these include pieces of code that I found elsewhere, which I credit appr
 
 * [Public Key Cryptography](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#public-key-cryptography)
    * [Exponential Cipher](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#exponential-cipher)
-   * RSA Algorithm
+   * [RSA Algorithm](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#rsa-algorithm)
    * Signature Authentication
    * Diffie - Hellman Key Exchange
    * Massey - Omura System

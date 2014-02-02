@@ -117,7 +117,7 @@ def splitMessageAndConvert(message, subSize, mode, aIsZero = True):
 #   mode - The mode to encode the message with.
 #       0 - Convert letters to their alphabetic indexes with A = 0.
 #       1 - Convert characters to their ASCII numbers.
-#   q - An optional second prime number which can be multiplied with the first to create a new p. (default: None)
+#   q - An optional second prime number which can be multiplied with the first to create a new n. (default: None)
 #   aIsZero - Whether the index of A starts at 0 or not in mode 0. (default: True)
 #
 #Return: The resulting ciphertext.
@@ -175,14 +175,14 @@ def exponentialCipherEncode(plaintext, key, p, mode, q = None, aIsZero = True):
 #
 #Parameters:
 #   plaintext - The message to decode
-#   key - The key to decode the message with.  Must satisfy the equation: gcd(key, p) = 1
+#   key - The key to decode the message with.  Must satisfy the equation: gcd(key, p-1) = 1
 #   p - The prime number to mod the message by.
 #   mode - The mode to decode the message with.
 #       0 - Convert letters to their alphabetic indexes with A = 0.
 #       1 - Convert characters to their ASCII numbers.
 #   isDecryptionKey - Whether the key given is the decryption key. (default: True)
 #   subSize - The size of each submessage, which you may know ahead of time. (default: None)
-#   q - An optional second prime number which can be multiplied with the first to create a new p. (default: None)
+#   q - An optional second prime number which can be multiplied with the first to create a new n. (default: None)
 #   aIsZero - Whether the index of A starts at 0 or not in mode 0. (default: True)
 #
 #Return: The resulting plaintext.

@@ -71,6 +71,12 @@ If you've looked at the actual code for the Exponential Cipher, you'll notice th
 
 So as far as the code goes, nothing changes except that you must have a q, and some of the totient function calculations as described in the [definition below](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#eulers-totient-function).  The code handles that change, but it's good for you to know that that's what's happening.
 
+The only reason why I even include an RSA file is to make the name of the function you're calling make more sense and to enforce the existence of q.
+
+![image](http://i.imgur.com/8IouvzK.jpg)
+
+No, not you.  Go away.
+
 ##Other Definitions
 
 ###Euler's Totient Function
