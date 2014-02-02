@@ -8,6 +8,10 @@ A very large part of why this works is because the math is done with really real
 
 * Ciphers
   * [Exponential Cipher](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#exponential-cipher)
+  * [RSA Algorithm](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#rsa-algorithm)
+
+* [Other Definitions](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#other-definitions)
+  * [Euler's Totient Function](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#eulers-totient-function)
 
 ##Exponential Cipher
 
@@ -45,7 +49,7 @@ We already know the chunk size is 2, and honestly for educational purposes the c
 
 c = 104337 081587 003961 057972 096525 027140
 
-To calculate the decryption key, all we need to do is find the multiplicative inverse of the encryption key under p - 1, or ![equation](http://latex.codecogs.com/gif.latex?%5Cinline%20%5Cphi%28p%29).  This is known as Euler's Totient function, or the phi function.
+To calculate the decryption key, all we need to do is find the multiplicative inverse of the encryption key under p - 1, or ![equation](http://latex.codecogs.com/gif.latex?%5Cinline%20%5Cphi%28p%29).  This is known as [Euler's Totient function](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#eulers-totient-function), or the phi function.
 
 19 ^ -1 mod 128188 = 26987 = d
 
@@ -65,7 +69,7 @@ The RSA Algorithm is very close to the Exponential Cipher.  One key difference i
 
 If you've looked at the actual code for the Exponential Cipher, you'll notice that I have an optional parameter called q.  This is because in the Exponential Cipher, the modulus value, n, can either be a single large prime, or the product of two larger primes (someone feel free to correct me if I'm wrong on that, but that's how I understand it).  In the RSA algorithm; however, the modules is always the product of two large primes, p and q (that I know I'm right on).  That extra layer of obscurity, and the fact that you've made your already large modulus even larger, is what makes the private key that much harder for someone else to discover.
 
-So as far as the code goes, nothing changes except that you must have a q, and some the totient function calculations as described in the definition below.  The code handles that change, but it's good for you to know that that's what's happening.
+So as far as the code goes, nothing changes except that you must have a q, and some of the totient function calculations as described in the [definition below](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#eulers-totient-function).  The code handles that change, but it's good for you to know that that's what's happening.
 
 ##Other Definitions
 
