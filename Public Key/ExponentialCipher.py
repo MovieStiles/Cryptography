@@ -1,6 +1,6 @@
 from fractions import gcd
-from PrimeMath import isPrime
-from Monoalphabetic.MultiplicativeCipher import modinv
+from CryptoMath import isPrime
+from CryptoMath import modinv
 import string
 import re
 

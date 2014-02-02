@@ -38,9 +38,11 @@ Some of these include pieces of code that I found elsewhere, which I credit appr
 
 * Knapsack Cryptosystem
 
+---
+
 ##Other Useful Scripts
 
-* Index of Coincidence
+### Index of Coincidence
 
 The index of coincidence (IC) is defined to be the probability of two letters selected randomly from a text being the same letter.
 This varies from language to language, so it offers a very quick and easy way to tell if some ciphertext has a frequency similar to the original language, and therefore used a
@@ -50,5 +52,13 @@ English Language IC = 0.065
 
 26 letter alphabet with all same frequency = 0.038
 
-* Letter Frequency Analysis
-* Prime Math
+### Letter Frequency Analysis
+
+Given a message, analysis the frequency of the various letters and return an ordered list of the letters along with their associated frequencies from most frequent to least.
+
+### Crypto Math
+
+An assortment of small misc functions that can be useful for many cryptosystems.
+
+* isPrime: Check if a given number is a prime number.
+* modInv: Find the multiplicative inverse of a number, a, modulus a number, m.
