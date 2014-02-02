@@ -5,6 +5,13 @@ A **polyalphabetic cipher** one in which the correspondence between plaintext an
 
 Below are explanations for each of the ciphers implemented in this folder.  It assumes that you know and understand any ideas introduced in the monoalphabetic ciphers, and likewise some of the code is built with more leaning towards performance and functionality over hand-holding the reader through the algorithms.
 
+* Ciphers
+   * [Vignere Cipher](https://github.com/MovieStiles/Cryptography/tree/master/Polyalphabetic#vignere-cipher)
+
+* Keyword Length Tests
+   * [Kasiski Test](https://github.com/MovieStiles/Cryptography/tree/master/Polyalphabetic#kasiski-test)
+   * [Friedman Test](https://github.com/MovieStiles/Cryptography/tree/master/Polyalphabetic#friedman-test)
+
 ##Vignere Cipher
 
 A Vignere cipher uses a keyword to determine the multiple substitution alphabets used in encryption.
