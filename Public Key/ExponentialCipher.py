@@ -204,7 +204,7 @@ def exponentialCipherDecode(ciphertext, key, p, mode, isDecryptionKey = True, su
 
     #Calculate the decryption key if needed
     if not isDecryptionKey:
-        key = modinv(key, p)
+        key = modinv(key, p-1)
 
     #Calculate the size of each submessage
     if subSize is None:
