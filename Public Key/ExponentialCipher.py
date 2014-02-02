@@ -178,12 +178,13 @@ def exponentialCipherEncode(plaintext, key, p, mode, q = None, aIsZero = True):
 #       0 - Convert letters to their alphabetic indexes with A = 0.
 #       1 - Convert characters to their ASCII numbers.
 #   isDecryptionKey - Whether the key given is the decryption key. (default: True)
+#   subSize - The size of each submessage, which you may know ahead of time. (default: None)
 #   q - An optional second prime number which can be multiplied with the first to create a new p. (default: None)
 #   aIsZero - Whether the index of A starts at 0 or not in mode 0. (default: True)
 #
 #Return: The resulting plaintext.
 ##
-def exponentialCipherDecode(ciphertext, key, p, mode, isDecryptionKey = True, q = None, aIsZero = True):
+def exponentialCipherDecode(ciphertext, key, p, mode, isDecryptionKey = True, subSize = None, q = None, aIsZero = True):
     if not isPrime(p):
         print "ERROR: exponentialCipherEncode: Third argument must be a prime number."
         return
@@ -206,7 +207,8 @@ def exponentialCipherDecode(ciphertext, key, p, mode, isDecryptionKey = True, q 
         key = modinv(key, p)
 
     #Calculate the size of each submessage
-    subSize = calcSubMessageSize(p, mode)
+    if subSize is None:
+        subSize = calcSubMessageSize(p, mode)
 
     #Break the message up into equal pieces
     #No need for any conversion since the ciphertext is already numbers.
