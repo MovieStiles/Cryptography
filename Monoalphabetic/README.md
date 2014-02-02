@@ -162,6 +162,8 @@ crazytrain -> crazytin
 | Plaintext Letter | D | E | F | G | H | I | J | K | L | M |
 | Maps To | c | r | a | z | y | t | i | n | b | d |
 
+---
+
 ##Other Definitions
 
 ###Relatively Prime

@@ -77,6 +77,18 @@ The only reason why I even include an RSA file is to make the name of the functi
 
 No, not you.  Go away.
 
+##Signature Authentication
+
+So now we have made a huge step forward in assuring that any message sent can only be decrypted and read by its intended recipient.  There's just one problem:  We still haven't seen a way to ensure that the message is coming from who we think it is.  That is where signature authentication comes in.
+
+The basic (and very simplified) premise is as follows if Alice wants to send a signature authenticated message to Bob:
+
+1. Alice calculates d1(S) where d1 is her private key and S is her signature.
+2. Next she encrypts it with Bob's public key, forming e2(d1(S)) and appends it to her encrypted message to Bob: e2(M).
+3. Bob receives it and verifies that it's Alice's signature by first applying his private key, resulting in d1(S), then applying Alice's public key, decrypting the signature completely.  He can then verify that it matches her known signature.
+
+---
+
 ##Other Definitions
 
 ###Euler's Totient Function
