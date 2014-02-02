@@ -45,7 +45,7 @@ We already know the chunk size is 2, and honestly for educational purposes the c
 
 c = 104337 081587 003961 057972 096525 027140
 
-To calculate the decryption key, all we need to do is find the multiplicative inverse of the encryption key under p - 1.
+To calculate the decryption key, all we need to do is find the multiplicative inverse of the encryption key under p - 1, or ![equation](http://latex.codecogs.com/gif.latex?%5Cinline%20%5Cphi%28p%29).  This is known as Euler's Totient function, or the phi function.
 
 19 ^ -1 mod 128188 = 26987 = d
 
@@ -57,7 +57,24 @@ And there's our original numbers which we can easily translate from ASCII:  Hell
 
 ####Afterthought
 
-If you read the top definition of public key cryptography, you'll no doubt notice on glaring problem with this cipher: It is not actually public key cryptography.
+On the surface, this algorithm may seem to violate one of the basic rules of public key cryptography, and that is that we calculated the decryption key, or private key, fairly easily.  Here's the thing: When using this algorithm the way that it truly should be (with p being much MUCH larger, on the order of hundreds of digits), that is when it becomes nigh impossible with today's computing power to calculate the private key, because multiplicative inverses are kickass.
 
-The problem is that the decryption key, or private key, is far too easy to calculate once you know the encryption key, or public key.  I chose to include it here because it provides a good introduction to the type of methodology we can expect in the ciphers to come, including the next one: The RSA Algorithm.
+##RSA Algorithm
 
+The RSA Algorithm is very close to the Exponential Cipher.  One key difference is in the initial setup.
+
+If you've looked at the actual code for the Exponential Cipher, you'll notice that I have an optional parameter called q.  This is because in the Exponential Cipher, the modulus value, n, can either be a single large prime, or the product of two larger primes (someone feel free to correct me if I'm wrong on that, but that's how I understand it).  In the RSA algorithm; however, the modules is always the product of two large primes, p and q (that I know I'm right on).  That extra layer of obscurity, and the fact that you've made your already large modulus even larger, is what makes the private key that much harder for someone else to discover.
+
+So as far as the code goes, nothing changes except that you must have a q, and some the totient function calculations as described in the definition below.  The code handles that change, but it's good for you to know that that's what's happening.
+
+##Other Definitions
+
+###Euler's Totient Function
+
+Euler's Totient function (denoted with the Greek letter, phi) is a function that describes how many numbers less than a given n are relatively prime to n.  For our purposes, we'll only be using this function on prime numbers, and that's an easy calculation.  If n is a prime number, then by definition of it being prime, all numbers less than n are relatively prime to it.  Therefore an easy shortcut is:
+
+![equation](http://latex.codecogs.com/gif.latex?%5Cphi%28n%29%3Dn-1)
+
+That's how we get "p - 1" as our value in the Exponential Cipher decryption example.
+
+This function has the property that it is a multiplicative function.  What that means is that ![equation](http://latex.codecogs.com/gif.latex?%5Cphi%28pq%29%3D%5Cphi%28p%29%5Cphi%28q%29%3D%28p-1%29%28q-1%29).
