@@ -15,17 +15,65 @@ A very large part of why this works is because the math is done with really real
 
 ##Exponential Cipher
 
-Given a numeric representation of a message, m, an encryption key, e, and a prime, p, where the equation gcd(e, p-1) = 1 holds true, the following equation is used to generate the ciphertext, c:
+Given a numeric representation of a message, m, an encryption key, e, and a prime, n, where the equation gcd(e, n-1) = 1 holds true, the following equation is used to generate the ciphertext, c:
 
-c = m^e mod p
+![equation](http://latex.codecogs.com/gif.latex?c%3Dm%5E%7Be%7D%20mod%28n%29)
+
+Our key, e, must be relatively prime to n-1 as I said before, but the reason why we use n-1 is because of [Euler's Totient Function](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#eulers-totient-function).
 
 This equation is not just done on the entire message at once.  Instead the message is broken up into small chunks roughly less than p.  Once the math is done on each chunk, then the group is concatenated together to form a single ciphertext message.
 
+So the equation ends up looking more like: ![equation](http://latex.codecogs.com/gif.latex?c%3D%5C%7Bm_%7B1%7D%2C%20m_%7B2%7D%2C%20m_%7B3%7D%2C%20...%5C%7D%5E%7Be%7D%20mod%28n%29)
+
+If you have the the encryption key, e, then the decryption key, d, can be calculated with:
+
+http://latex.codecogs.com/gif.latex?d%3De%5E%7B-1%7D%20mod%28n%29
+
+This is otherwise known as finding the [multiplicative inverse](https://github.com/MovieStiles/Cryptography/tree/master/Monoalphabetic#multiplicative-inverse) of e.
+
+####Encryption Example: p = 2707, e = 17, m = "Hello"
+
+For this example, we will be using the alphabetic index of each letter, assuming A = 0.  This code also supports assuming A = 1 and using the ASCII representation of a character.
+
+So "Hello" becomes 08 05 12 12 15, and yes we do **need** to include the leading zeroes to make sure that they're all the same length (2 in this case).
+
+Since we are using the alphabetic index starting at 0, the maximum value any letter can be is 25.  We calculate the size that we need to divide the message into with:
+
+2525 < 2707 < 252525.  Therefore size = 2.
+
+| Size = 2 | | | |
+| --- | --- | --- | --- |
+| Chunks | 0805 | 1212 | 1500 |
+
+Notice that zeroes were added at the end of the last chunk in order to equal out the size. This just means that our message will have an extra "a" at the end, which should be easy for a human to spot.  Now run those numbers through the equation:
+
+![equation](http://i.imgur.com/MYzegim.png)
+
+Add in the necessary leading zeroes to each chunk of the message and our ciphertext is:
+
+102525530490
+
+####Decryption Example: p = 2707, e = 17
+
+We already know the chunk size is 2, and honestly for educational purposes the ciphertext you look at will likely already be clearly spaced out enough that you can figure out the size anyway.
+
+c = 1025 2553 0490
+
+To calculate the decryption key, all we need to do is find the multiplicative inverse of the encryption key under p - 1, or ![equation](http://latex.codecogs.com/gif.latex?%5Cinline%20%5Cphi%28p%29).  This is known as [Euler's Totient function](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#eulers-totient-function), or the phi function.
+
+![equation](http://latex.codecogs.com/gif.latex?17%5E%7B-1%7Dmod%282706%29%3D1751%3Dd)
+
+Now run the ciphertext through the equation, but this time using d instead of e.
+
+![equation](http://i.imgur.com/XHqHS9V.png)
+
+And there's our original numbers which we can easily translate:  hello
+
 ####Encryption Example: p = 128189, e = 19, m = "Hello world"
 
-For this example, we will be using ASCII as the numeric representation of our message.  This code also supports simply using the alphabetic index of a letter where A is either 0 or 1.
+For this example, we will be using ASCII as the numeric representation of our message.
 
-So "Hello world" becomes 072 101 108 108 111 032 119 111 114 108 100, and yes we do **need** to include the leading zeroes to make sure that they're all the same length (3 in this case).
+So "Hello world" becomes 072 101 108 108 111 032 119 111 114 108 100.
 
 Since we are using ASCII, the maximum value of any letter is 127.  We calculate the chunk size based on how many of those can fit under our p:
 
@@ -49,9 +97,9 @@ We already know the chunk size is 2, and honestly for educational purposes the c
 
 c = 104337 081587 003961 057972 096525 027140
 
-To calculate the decryption key, all we need to do is find the multiplicative inverse of the encryption key under p - 1, or ![equation](http://latex.codecogs.com/gif.latex?%5Cinline%20%5Cphi%28p%29).  This is known as [Euler's Totient function](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#eulers-totient-function), or the phi function.
+To calculate the decryption key, all we need to do is find the multiplicative inverse of the encryption key under p - 1, or ![equation](http://latex.codecogs.com/gif.latex?%5Cinline%20%5Cphi%28p%29).
 
-19 ^ -1 mod 128188 = 26987 = d
+![equation](http://latex.codecogs.com/gif.latex?19%5E%7B-1%7Dmod%28128188%29%3D26987%3Dd)
 
 Now run the ciphertext through the equation, but this time using d instead of e.
 
@@ -95,8 +143,6 @@ The basic (and very simplified) premise is as follows if Alice wants to send a s
 
 Euler's Totient function (denoted with the Greek letter, phi) is a function that describes how many numbers less than a given n are relatively prime to n.  For our purposes, we'll only be using this function on prime numbers, and that's an easy calculation.  If n is a prime number, then by definition of it being prime, all numbers less than n are relatively prime to it.  Therefore an easy shortcut is:
 
-![equation](http://latex.codecogs.com/gif.latex?%5Cphi%28n%29%3Dn-1)
-
-That's how we get "p - 1" as our value in the Exponential Cipher decryption example.
+![equation](http://latex.codecogs.com/gif.latex?%5Cphi%28n%29%3Dn-1) where n is prime.
 
 This function has the property that it is a multiplicative function.  What that means is that ![equation](http://latex.codecogs.com/gif.latex?%5Cphi%28pq%29%3D%5Cphi%28p%29%5Cphi%28q%29%3D%28p-1%29%28q-1%29).
