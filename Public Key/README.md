@@ -21,7 +21,7 @@ Given a numeric representation of a message, m, an encryption key, e, and a prim
 
 Our key, e, must be relatively prime to n-1 as I said before, but the reason why we use n-1 is because of [Euler's Totient Function](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#eulers-totient-function).
 
-This equation is not just done on the entire message at once.  Instead the message is broken up into small chunks roughly less than p.  Once the math is done on each chunk, then the group is concatenated together to form a single ciphertext message.
+This equation is not just done on the entire message at once.  Instead the message is broken up into small chunks roughly less than n.  Once the math is done on each chunk, then the group is concatenated together to form a single ciphertext message.
 
 So the equation ends up looking more like: ![equation](http://latex.codecogs.com/gif.latex?c%3D%5C%7Bm_%7B1%7D%2C%20m_%7B2%7D%2C%20m_%7B3%7D%2C%20...%5C%7D%5E%7Be%7D%20mod%28n%29)
 
@@ -30,6 +30,8 @@ If you have the the encryption key, e, then the decryption key, d, can be calcul
 ![equation](http://latex.codecogs.com/gif.latex?d%3De%5E%7B-1%7D%20mod%28n%29)
 
 This is otherwise known as finding the [multiplicative inverse](https://github.com/MovieStiles/Cryptography/tree/master/Monoalphabetic#multiplicative-inverse) of e.
+
+The same equation you used to encrypt the text can now be used to decrypt it, simply replacing e with d and running the equation on each chunk of the ciphertext.
 
 ####Encryption Example: p = 2707, e = 17, m = "Hello"
 
