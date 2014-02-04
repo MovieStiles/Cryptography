@@ -27,7 +27,7 @@ So the equation ends up looking more like: ![equation](http://latex.codecogs.com
 
 If you have the the encryption key, e, then the decryption key, d, can be calculated with:
 
-http://latex.codecogs.com/gif.latex?d%3De%5E%7B-1%7D%20mod%28n%29
+![equation](http://latex.codecogs.com/gif.latex?d%3De%5E%7B-1%7D%20mod%28n%29)
 
 This is otherwise known as finding the [multiplicative inverse](https://github.com/MovieStiles/Cryptography/tree/master/Monoalphabetic#multiplicative-inverse) of e.
 
