@@ -3,20 +3,19 @@ from LetterFrequency import calcLetterFrequency
 from CryptoMath import modinv
 import string
 
-##
-#multiplicativeCipher
-#Description: Either encrypt or decrypt a message with a multiplicative cipher
-# with a given key.  This function assumes that alphabet indexes start at 0.
-#
-#Parameters:
-#   message - The message to be encrypted or decrypted
-#   key - The key to use with the cipher.  Assumed to be the encryption key.
-#   encrypt - True if encrypting, False otherwise.  True by default.
-#   aIsZero - Whether or not the index of A is assumed to be zero.  True by default.
-#
-#Return: The new message
-##
 def multiplicativeCipher(message, key, encrypt = True, aIsZero = True):
+    """Either encrypt or decrypt a message with a multiplicative cipher
+        with a given key.  This function assumes that alphabet indexes start at 0.
+
+    Args:
+        message: The message to be encrypted or decrypted.
+        key: The key to use with the cipher.  Assumed to be the encryption key.
+        encrypt: True if encrypting, False otherwise. (default: True)
+        aIsZero: Whether or not the index of A is assumed to be zero. (default: True)
+
+    Returns:
+        The resulting message.
+    """
     message = message.lower().replace(' ', '')
     alphabet = string.lowercase
     newMessage = ""
@@ -41,19 +40,18 @@ def multiplicativeCipher(message, key, encrypt = True, aIsZero = True):
 
     return newMessage
 
-##
-#findLikelyKeys
-#Description: Find up to the top five most likely keys of a message encrypted with a
-# multiplicative cipher and return the resulting messages along with the keys.
-# Takes heavy advantage of the fact that the letter E is the most common letter in English.
-#
-#Parameters:
-#   message - The message to try and decrypt.
-#   aIsZero - Whether or not the index of A is assumed to be zero.  True by default.
-#
-#Return: A dictionary of the messages and keys.
-##
 def findLikelyKeys(message, aIsZero = True):
+    """Find up to the top five most likely keys of a message encrypted with a
+        multiplicative cipher and return the resulting messages along with the keys.
+        Takes heavy advantage of the fact that the letter E is the most common letter in English.
+
+    Args:
+        message: The message to try and decrypt.
+        aIsZero: Whether or not the index of A is assumed to be zero. (default: True)
+
+    Returns:
+        A dictionary of the messages and keys.
+    """
     #The list of letters that E can become is as finite as the list of keys.
     letters = ['o', 'y', 'i', 's', 'c', 'w', 'g', 'q', 'a', 'k', 'u']
     #Get the list of frequencies, sorted by most frequent.
@@ -78,11 +76,9 @@ def findLikelyKeys(message, aIsZero = True):
 
     return possibles
 
-##
-#test
-#Description: A small method to test the outputs of the methods in this file.
-##
 def test():
+    """A small function to test the outputs of the methods in this file.
+    """
     print multiplicativeCipher("This is a test message", 5)
     print multiplicativeCipher("rjomomarumriummaeu", 5, False)
     print multiplicativeCipher("This is a test message", 6)
