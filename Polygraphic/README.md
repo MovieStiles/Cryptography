@@ -34,6 +34,8 @@ Taking these three resulting blocks gives us the ciphertext: RCJVKQ
 
 ####Decryption Example: Ciphertext = "HZD UGQ OBK GHZ TGY KOB HZP QNS XV"
 
+If we know the encryption matrix, this would be as simple as inverting the matrix and applying the matrix to each block of the message.  However, that's rather easy.
+
 Let's assume we know it's been encrypted with a 2x2 matrix, but we have no idea what the four elements of that matrix are.  Our goal is to solve for these elements.
 
 The first step is to perform some frequency analysis.  The best thing to look out for is if there are any good candidates for the digraph, or pair of letters, "th".  Take note of any other repeating digraphs.  For our message, we can see that "HZ" repeats three times, so let's set up an equation to begin solving our matrix for how "HZ" can become "TH":
@@ -54,13 +56,21 @@ We also know that a can only be 9 or 22, so let's see what impact this has on b.
 
 21b = 21, 7b = 7, and 17b = 17.  Therefore, b = 1.
 
-Under the assumption that a is 22, we use a similar line of deduction to conclude that c is either 1 or 14.  Since the first line of the matrix is solved, we can solve every other letter of the message now:
+Under the assumption that a is 22 (we're just guessing really), we use a similar line of deduction to conclude that c is either 1 or 14.  Since the first line of the matrix is solved, we can solve every other letter of the message now:
 
 tZe UoQ tBo GtZ eGo KtB tZe QoS dV
 
 We can also fill in a couple more letters from our assumptions: the UoQ tBo Gth eGo KtB the QoS dV
 
-Coming soon: Using the determinant to continue our decryption.
+Now it's time to use the determinant of the matrix to gain more information.  We have a and b, so we can say the determinant is 22d - c.  We know that the determinant can't be even, since even numbers aren't invertible in mod 26.  Therefore c = 1.
+
+We now have: ![equation](http://i.imgur.com/YoY5a6L.png)
+
+Therefore, we can also say that, generically, ![equation](http://i.imgur.com/4LiCeSG.png)
+
+From here we might as well brute force it until we get a message that makes sense, and sure enough we quickly find the answer is that d = 1, revealing our plaintext:
+
+The dog took the toy to the pondx
 
 ---
 
