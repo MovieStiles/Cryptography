@@ -2,7 +2,7 @@
 
 A **polygraphic cipher** is one in which blocks of plaintext are replaced by blocks of ciphertext.  This can easily be compared to a polyalphabetic substitution cipher, but this with splitting the text into blocks, or matrices.  Generally the block size is known, but that's not a big problem.
 
-Since this involves matrices, this section does assume some knowledge of a few basic operations.  Namely: Matrix addition, scalar multiplication, and matrix multiplication.
+Since this involves matrices, this section does assume some knowledge of a few basic operations.  Namely: Matrix addition, scalar multiplication, and matrix multiplication.  Ideas presented in the Monoalphabetic and Polyaphbetic ciphers are also fair game.
 
 * Ciphers
    * [Hills System](https://github.com/MovieStiles/Cryptography/tree/master/Polygraphic#hills-system)
@@ -34,7 +34,33 @@ Taking these three resulting blocks gives us the ciphertext: RCJVKQ
 
 ####Decryption Example: Ciphertext = "HZD UGQ OBK GHZ TGY KOB HZP QNS XV"
 
-Coming Soon
+Let's assume we know it's been encrypted with a 2x2 matrix, but we have no idea what the four elements of that matrix are.  Our goal is to solve for these elements.
+
+The first step is to perform some frequency analysis.  The best thing to look out for is if there are any good candidates for the digraph, or pair of letters, "th".  Take note of any other repeating digraphs.  For our message, we can see that "HZ" repeats three times, so let's set up an equation to begin solving our matrix for how "HZ" can become "TH":
+
+![equation](http://latex.codecogs.com/gif.latex?\\begin{bmatrix}%20a%20%26%20b\\\\%20c%20%26%20d%20\\end{bmatrix}%20\\begin{bmatrix}%208\\\\%200%20\\end{bmatrix}%20%3D%20\\begin{bmatrix}%2020\\\\%208%20\\end{bmatrix})
+
+8a + 0b = 20 and 8c + 0d = 8
+
+In mod 26, this means that a = 9 or 22 and c = 1 or 14.
+
+Now what can we discover if we assume that "TH" is followed by "E"?
+
+![equation](http://i.imgur.com/h2nbtNI.png)
+
+From that we gain:  4a + 21b = 5, 20a + 7b = 5, and 16a + 17b = 5
+
+We also know that a can only be 9 or 22, so let's see what impact this has on b.  In this case, it turns out that both values have the same effect.
+
+21b = 21, 7b = 7, and 17b = 17.  Therefore, b = 1.
+
+Under the assumption that a is 22, we use a similar line of deduction to conclude that c is either 1 or 14.  Since the first line of the matrix is solved, we can solve every other letter of the message now:
+
+tZe UoQ tBo GtZ eGo KtB tZe QoS dV
+
+We can also fill in a couple more letters from our assumptions: the UoQ tBo Gth eGo KtB the QoS dV
+
+Coming soon: Using the determinant to continue our decryption.
 
 ---
 
@@ -50,7 +76,7 @@ A matrix is said to be **invertible** if a second matrix exists of the same size
 
 For any matrix containing the elements a, b, c, and d, if the inverse exists it is equal to: ![equation](http://latex.codecogs.com/gif.latex?\\frac{1}{ad-bc}%20\\begin{bmatrix}%20d%20%26%20-b\\\\%20-c%20%26%20a%20\\end{bmatrix})
 
-ad-bc is also the [determinant](http://en.wikipedia.org/wiki/Determinant) of the matrix, which provides a way to test if a matrix is invertible.
+ad-bc is also the [determinant](http://en.wikipedia.org/wiki/Determinant) of the matrix, which provides a way to test if a matrix is invertible.  For our purposes that's the important part of what a determinant is, but feel free to digest Wikipedia's article on it for more information.
 
 As [Wikipedia](http://en.wikipedia.org/wiki/Hill_cipher) says:  "The matrix will have an inverse if and only if its determinant is not zero, and does not have any common factors with the modular base. Thus, if we work (in) modulo 26 as above, the determinant must be nonzero, and must not be divisible by 2 or 13."  Another thing that can be said is that the determinant must have a multiplicative inverse in the modulo base.
 
