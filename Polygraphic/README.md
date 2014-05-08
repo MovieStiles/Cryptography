@@ -18,17 +18,17 @@ Also known as the **Hill Cipher**, it uses some linear algebra to encrypt and de
 
 Rather than using an encryption keyword, for this cipher we use an encryption matrix.  One restriction on our matrix is that it must be invertible.  Here's the encryption matrix we'll use:
 
-![equation](http://latex.codecogs.com/gif.latex?\begin{bmatrix}%201%20%26%202\\%203%20%26%201%20\end{bmatrix})
+![equation](http://latex.codecogs.com/gif.latex?\\begin{bmatrix}%201%20%26%202\\\\%203%20%26%201%20\\end{bmatrix})
 
 Because this is a 2x2 matrix, our message needs to split up into chunks of two.  However, there are five letters in our message, so we need to change it:
 
 "hello" becomes "hellox" to fit the requirements of the matrix.  If our encryption matrix was a 3x3, then our message length would need to be divisible by three.
 
-Now let's split our new message into the blocks of two: ![equation](http://latex.codecogs.com/gif.latex?\begin{bmatrix}%208\\%205%20\end{bmatrix}%20\begin{bmatrix}%2012\\%2012%20\end{bmatrix}%20\begin{bmatrix}%2015\\%2024%20\end{bmatrix})
+Now let's split our new message into the blocks of two: ![equation](http://latex.codecogs.com/gif.latex?\\begin{bmatrix}%208\\\\%205%20\\end{bmatrix}%20\\begin{bmatrix}%2012\\\\%2012%20\\end{bmatrix}%20\\begin{bmatrix}%2015\\\\%2024%20\\end{bmatrix})
 
 Now to apply our encryption matrix to each block:
 
-![equation](http://latex.codecogs.com/gif.latex?\begin{bmatrix}%201%20%26%202\\%203%20%26%201%20\end{bmatrix}%20\begin{bmatrix}%208\\%205%20\end{bmatrix}%20%3D%20\begin{bmatrix}%208\\%205%20\end{bmatrix}%20\hspace{10%20mm}%20\begin{bmatrix}%201%20%26%202\\%203%20%26%201%20\end{bmatrix}%20\begin{bmatrix}%2012\\%2012%20\end{bmatrix}%20%3D%20\begin{bmatrix}%2010\\%2022%20\end{bmatrix}%20\hspace{10%20mm}%20\begin{bmatrix}%201%20%26%202\\%203%20%26%201%20\end{bmatrix}%20\begin{bmatrix}%2015\\%2024%20\end{bmatrix}%20%3D%20\begin{bmatrix}%2011\\%2017%20\end{bmatrix}%20\hspace{10%20mm})
+![equation](http://latex.codecogs.com/gif.latex?\\begin{bmatrix}%201%20%26%202\\\\%203%20%26%201%20\\end{bmatrix}%20\\begin{bmatrix}%208\\\\%205%20\\end{bmatrix}%20%3D%20\\begin{bmatrix}%208\\\\%205%20\\end{bmatrix}%20\\hspace{10%20mm}%20\\begin{bmatrix}%201%20%26%202\\\\%203%20%26%201%20\\end{bmatrix}%20\\begin{bmatrix}%2012\\\\%2012%20\\end{bmatrix}%20%3D%20\\begin{bmatrix}%2010\\\\%2022%20\\end{bmatrix}%20\\hspace{10%20mm}%20\\begin{bmatrix}%201%20%26%202\\\\%203%20%26%201%20\\end{bmatrix}%20\\begin{bmatrix}%2015\\\\%2024%20\\end{bmatrix}%20%3D%20\\begin{bmatrix}%2011\\\\%2017%20\\end{bmatrix}%20\\hspace{10%20mm})
 
 Taking these three resulting blocks gives us the ciphertext: RCJVKQ
 
@@ -42,11 +42,11 @@ Coming Soon
 
 ###Matrix Invertibility
 
-Let's use the following matrix to demonstrate the definition: ![equation](http://latex.codecogs.com/gif.latex?\begin{bmatrix}%201%20%26%202\\%203%20%26%201%20\end{bmatrix})
+Let's use the following matrix to demonstrate the definition: ![equation](http://latex.codecogs.com/gif.latex?\\begin{bmatrix}%201%20%26%202\\\\%203%20%26%201%20\\end{bmatrix})
 
 A matrix is said to be **invertible** if a second matrix exists of the same size that can be multiplied with it to form the identity matrix.  For our example matrix:
 
-![equation](http://latex.codecogs.com/gif.latex?\begin{bmatrix}%20a%20%26%20b\\%20c%20%26%20d%20\end{bmatrix}%20\begin{bmatrix}%201%20%26%202\\%203%20%26%201%20\end{bmatrix}%20%3D%20\begin{bmatrix}%201%20%26%200\\%200%20%26%201%20\end{bmatrix}) where a, b, c, and d are integers.
+![equation](http://latex.codecogs.com/gif.latex?\\begin{bmatrix}%20a%20%26%20b\\\\%20c%20%26%20d%20\\end{bmatrix}%20\\begin{bmatrix}%201%20%26%202\\\\%203%20%26%201%20\\end{bmatrix}%20%3D%20\\begin{bmatrix}%201%20%26%200\\\\%200%20%26%201%20\\end{bmatrix}) where a, b, c, and d are integers.
 
 For any matrix containing the elements a, b, c, and d, if the inverse exists it is equal to: ![equation](http://latex.codecogs.com/gif.latex?\\frac{1}{ad-bc}%20\\begin{bmatrix}%20d%20%26%20-b\\\\%20-c%20%26%20a%20\\end{bmatrix})
 
