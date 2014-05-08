@@ -28,7 +28,7 @@ Now let's split our new message into the blocks of two: ![equation](http://latex
 
 Now to apply our encryption matrix to each block:
 
-![equation](http://latex.codecogs.com/gif.latex?\\begin{bmatrix}%201%20%26%202\\\\%203%20%26%201%20\\end{bmatrix}%20\\begin{bmatrix}%208\\\\%205%20\\end{bmatrix}%20%3D%20\\begin{bmatrix}%208\\\\%205%20\\end{bmatrix}%20\\hspace{10%20mm}%20\\begin{bmatrix}%201%20%26%202\\\\%203%20%26%201%20\\end{bmatrix}%20\\begin{bmatrix}%2012\\\\%2012%20\\end{bmatrix}%20%3D%20\\begin{bmatrix}%2010\\\\%2022%20\\end{bmatrix}%20\\hspace{10%20mm}%20\\begin{bmatrix}%201%20%26%202\\\\%203%20%26%201%20\\end{bmatrix}%20\\begin{bmatrix}%2015\\\\%2024%20\\end{bmatrix}%20%3D%20\\begin{bmatrix}%2011\\\\%2017%20\\end{bmatrix}%20\\hspace{10%20mm})
+![equation](http://latex.codecogs.com/gif.latex?\\begin{bmatrix}%201%20%26%202\\\\%203%20%26%201%20\\end{bmatrix}%20\\begin{bmatrix}%2018\\\\%203%20\\end{bmatrix}%20%3D%20\\begin{bmatrix}%208\\\\%205%20\\end{bmatrix}%20\\hspace{10%20mm}%20\\begin{bmatrix}%201%20%26%202\\\\%203%20%26%201%20\\end{bmatrix}%20\\begin{bmatrix}%2012\\\\%2012%20\\end{bmatrix}%20%3D%20\\begin{bmatrix}%2010\\\\%2022%20\\end{bmatrix}%20\\hspace{10%20mm}%20\\begin{bmatrix}%201%20%26%202\\\\%203%20%26%201%20\\end{bmatrix}%20\\begin{bmatrix}%2015\\\\%2024%20\\end{bmatrix}%20%3D%20\\begin{bmatrix}%2011\\\\%2017%20\\end{bmatrix}%20\\hspace{10%20mm})
 
 Taking these three resulting blocks gives us the ciphertext: RCJVKQ
 
