@@ -22,8 +22,8 @@ Some of these include pieces of code that I found elsewhere, which I credit appr
 * [Polyalphabetic Ciphers](https://github.com/MovieStiles/Cryptography/tree/master/Polyalphabetic#polyalphabetic-ciphers)
    * [Vignere Cipher](https://github.com/MovieStiles/Cryptography/tree/master/Polyalphabetic#vignere-cipher)
 
-* Polygraphic Ciphers
-   * Hills System
+* [Polygraphic Ciphers](https://github.com/MovieStiles/Cryptography/tree/master/Polygraphic#polygraphic-ciphers)
+   * [Hills System](https://github.com/MovieStiles/Cryptography/tree/master/Polygraphic#hills-system)
 
 * [Public Key Cryptography](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#public-key-cryptography)
    * [Exponential Cipher](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#exponential-cipher)
