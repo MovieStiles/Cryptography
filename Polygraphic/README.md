@@ -46,9 +46,9 @@ Let's use the following matrix to demonstrate the definition: ![equation](http:/
 
 A matrix is said to be **invertible** if a second matrix exists of the same size that can be multiplied with it to form the identity matrix.  For our example matrix:
 
-http://latex.codecogs.com/gif.latex?\begin{bmatrix}%20a%20%26%20b\\%20c%20%26%20d%20\end{bmatrix}%20\begin{bmatrix}%201%20%26%202\\%203%20%26%201%20\end{bmatrix}%20%3D%20\begin{bmatrix}%201%20%26%200\\%200%20%26%201%20\end{bmatrix} where a, b, c, and d are integers.
+![equation](http://latex.codecogs.com/gif.latex?\begin{bmatrix}%20a%20%26%20b\\%20c%20%26%20d%20\end{bmatrix}%20\begin{bmatrix}%201%20%26%202\\%203%20%26%201%20\end{bmatrix}%20%3D%20\begin{bmatrix}%201%20%26%200\\%200%20%26%201%20\end{bmatrix}) where a, b, c, and d are integers.
 
-For any matrix containing the elements a, b, c, and d, if the inverse exists it is equal to: http://latex.codecogs.com/gif.latex?\frac{1}{ad-bc}%20\begin{bmatrix}%20d%20%26%20-b\\%20-c%20%26%20a%20\end{bmatrix}
+For any matrix containing the elements a, b, c, and d, if the inverse exists it is equal to: ![equation](http://latex.codecogs.com/gif.latex?\\frac{1}{ad-bc}%20\\begin{bmatrix}%20d%20%26%20-b\\\\%20-c%20%26%20a%20\\end{bmatrix})
 
 ad-bc is also the [determinant](http://en.wikipedia.org/wiki/Determinant) of the matrix, which provides a way to test if a matrix is invertible.
 
