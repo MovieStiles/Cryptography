@@ -1,6 +1,6 @@
 #Polygraphic Ciphers
 
-A **polygraphic cipher** is one in which blocks of plaintext are replaced by blocks of ciphertext.  This can easily be compared to a polyalphabetic substitution cipher, but this with splitting the text into blocks, or matrices.  Generally the block size is known, but that's not a big problem.
+A **polygraphic cipher** is one in which blocks of plaintext are replaced by blocks of ciphertext.  This can easily be compared to a polyalphabetic substitution cipher, but this is with splitting the text into blocks, or matrices.
 
 Since this involves matrices, this section does assume some knowledge of a few basic operations.  Namely: Matrix addition, scalar multiplication, and matrix multiplication.  Ideas presented in the Monoalphabetic and Polyaphbetic ciphers are also fair game.
 
