@@ -28,7 +28,7 @@ To encrypt, we shift each letter by distance x-1 where x is the position of the 
 
 ####Decryption
 To decrypt, we first need to ask if this is even a Vignere cipher in the first place.
-One characteristic is that the letter frequency gets smoothed out compared to the monoalphabetic ciphers.  If we already know, then we don't even need the actual keyword, just what it's length is.
+One characteristic is that the letter frequency gets smoothed out compared to the monoalphabetic ciphers.  Check out the entry on the main page for the [index of coincidence](https://github.com/MovieStiles/Cryptography#index-of-coincidence) for more information.  If we already know, then we don't even need the actual keyword, just what it's length is.
 From there it's just a monoalphabetic additive cipher on every nth letter in the message since each letter in the keyword shifts the corresponding letter in the plaintext the same way.
 
 As for finding that keyword length...well, that's going to take a lot more work.  There are a few tests you can perform, but none of them are as accurate as one might like, so it's a good idea to conduct multiple tests.  The major ones that I discuss are the Kasiski test and the Friedman test.
