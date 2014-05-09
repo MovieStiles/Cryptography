@@ -1,6 +1,6 @@
 #Cryptography Python Scripts
 
-This repo is to show all of the scripts I developed over the course of the last semester taking Cryptography.
+This repo is to show all of the scripts I developed over the course of taking University of Portland's Cryptography course in the fall of 2013.
 Initially they were very rough and really only meant for my use, but over time I will clean them up (such as organizing them into actual functions), and post everything I used to help me crack the ciphers taught in this class.
 
 The purpose of these is too help others with introducing themselves to cryptography, so I include a lot of documentation on what the different ciphers are and a few other definitions to try and help people who aren't as familiar with the concepts used.  I do not go too deeply into how all of the math works, because this is meant to be friendly to those who don't necessarily know a lot of advanced math.  So, for example, once I finish the RSA code, I will not go into how rings and fields and whatnot make the math possible, only that it works because multiplicative inverses are kickass.
@@ -28,7 +28,7 @@ Some of these include pieces of code that I found elsewhere, which I credit appr
 * [Public Key Cryptography](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#public-key-cryptography)
    * [Exponential Cipher](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#exponential-cipher)
    * [RSA Algorithm](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#rsa-algorithm)
-   * Signature Authentication
+   * [Signature Authentication](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#signature-authentication)
    * Diffie - Hellman Key Exchange
    * Massey - Omura System
 

@@ -9,6 +9,7 @@ A very large part of why this works is because the math is done with really real
 * Ciphers
   * [Exponential Cipher](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#exponential-cipher)
   * [RSA Algorithm](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#rsa-algorithm)
+  * [Signature Authentication](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#signature-authentication)
 
 * [Other Definitions](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#other-definitions)
   * [Euler's Totient Function](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#eulers-totient-function)
