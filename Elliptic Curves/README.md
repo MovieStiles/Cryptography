@@ -6,11 +6,16 @@ The basic problem is this:  Suppose E is an elliptic curve and Q is a point on E
 
 For example, if we wanted to solve the equation k(2,1)=(2,4) over mod 5, we're essentially asking how many times the point (2,1) needs to be added to itself to becomes (2,4) over mod 5.  Once you get into very large numbers, this problem becomes incredibly difficult.  Just try solving that problem after reading the sections below on adding points.  It's more cumbersome than it looks.
 
+* [Elliptic Curves](https://github.com/MovieStiles/Cryptography/tree/master/Elliptic%20Curves#elliptic-curves)
+   * [Finding the Points on an Elliptic Curve](https://github.com/MovieStiles/Cryptography/tree/master/Elliptic%20Curves#finding-the-points-on-an-elliptic-curve)
+   * [Adding Points (Geometrically)](https://github.com/MovieStiles/Cryptography/tree/master/Elliptic%20Curves#adding-points-geometrically)
+   * [Adding Points (Equations)](https://github.com/MovieStiles/Cryptography/tree/master/Elliptic%20Curves#adding-points-equations)
+
 ##Elliptic Curves
 
 Without going into concepts such as fields and rings, an **elliptic curve** is a function of the form: ![equation](http://latex.codecogs.com/gif.latex?y^2%3Dx^3&plus;Ax&plus;B).  The elliptic curve is made of both the set of points that satisfy this as well as the point at infinity.  These points tend to be under the mod of some number.
 
-It is required that this function has no repeated zeroes, and the statement ![equation](http://latex.codecogs.com/gif.latex?4A^3&plus;27B^2\neq%200) must hold true.
+It is required that this function has no repeated zeroes, and the statement ![equation](http://latex.codecogs.com/gif.latex?4A^3&plus;27B^2\\neq%200) must hold true.
 
 [Wolfram Mathworld](http://mathworld.wolfram.com/EllipticCurve.html) has some great examples on what these elliptic curves can look like:
 
@@ -30,7 +35,7 @@ This knowledge makes things easier on us for finding the points:
 
 There are three cases to consider when adding points P and Q on an elliptic curve.  The tutorial on [Certicom](https://www.certicom.com/index.php/21-elliptic-curve-addition-a-geometric-approach) has excellent pictures if it helps you.
 
-1. Adding two points where ![equation](http://latex.codecogs.com/gif.latex?x_1\neq%20x_2) and ![equation](http://latex.codecogs.com/gif.latex?P\neq%20Q)
+1. Adding two points where ![equation](http://latex.codecogs.com/gif.latex?x_1\\neq%20x_2) and ![equation](http://latex.codecogs.com/gif.latex?P\\neq%20Q)
 
    Draw a line intersecting these two points.  It can be proven that this line will always intersect the curve at one more point.  Find that third point, then reflect that point across the x-axis.  That new point is your answer.
 
@@ -44,26 +49,26 @@ There are three cases to consider when adding points P and Q on an elliptic curv
 
 ####Adding Points (Equations)
 
-Given an elliptic curve, E, defined by ![equation](http://latex.codecogs.com/gif.latex?y^2%3Dx^3&plus;Ax&plus;B) and let ![equation](http://latex.codecogs.com/gif.latex?P_1%3D%28x_1%2Cy_1%29%2C%20P_2%3D%28x_2%2Cy_2%29%2C%20and%20P_3%3D%28x_3_y_3%29%3DP_1&plus;P_2)
+Given an elliptic curve, E, defined by ![equation](http://latex.codecogs.com/gif.latex?y^2%3Dx^3&plus;Ax&plus;B) and let ![equation](http://latex.codecogs.com/gif.latex?P_1%3D%28x_1%2Cy_1%29%2C%20P_2%3D%28x_2%2Cy_2%29%2C%20and%20P_3%3D%28x_3%2Cy_3%29%3DP_1&plus;P_2)
 
 There are four cases to consider:
 
-1. If ![equation](http://latex.codecogs.com/gif.latex?x_1\neq%20x_2)
+1. If ![equation](http://latex.codecogs.com/gif.latex?x_1\\neq%20x_2)
 
    ![equation](http://latex.codecogs.com/gif.latex?x_3%3Dm^2-x_1-x_2)
 
    ![equation](http://latex.codecogs.com/gif.latex?y_3%3Dm%28x_1-x_3%29-y_1)
 
-   Where ![equation](http://latex.codecogs.com/gif.latex?m%3D\frac{y_2-y_1}{x_2-x_1})
+   Where ![equation](http://latex.codecogs.com/gif.latex?m%3D\\frac{y_2-y_1}{x_2-x_1})
 
-2. If ![equation](http://latex.codecogs.com/gif.latex?x_1%3Dx_2%2C%20y_1\neq%20y_2), then the answer is infinity.
+2. If ![equation](http://latex.codecogs.com/gif.latex?x_1%3Dx_2%2C%20y_1\\neq%20y_2), then the answer is infinity.
 
-3. If ![equation](http://latex.codecogs.com/gif.latex?P_1%3DP_2%2C%20y_1\neq%200)
+3. If ![equation](http://latex.codecogs.com/gif.latex?P_1%3DP_2%2C%20y_1\\neq%200)
 
    ![equation](http://latex.codecogs.com/gif.latex?x_3%3Dm^2-2x_1)
 
    ![equation](http://latex.codecogs.com/gif.latex?y_3%3Dm%28x_1-x_3%29-y_1)
 
-   Where ![equation](http://latex.codecogs.com/gif.latex?m%3D\frac{3x_1^2&plus;A}{2y_1})
+   Where ![equation](http://latex.codecogs.com/gif.latex?m%3D\\frac{3x_1^2&plus;A}{2y_1})
 
 4. If ![equation](http://latex.codecogs.com/gif.latex?P_1%3DP_2%2C%20y_1=%200), then the answer is infinity.

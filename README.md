@@ -32,8 +32,8 @@ Some of these include pieces of code that I found elsewhere, which I credit appr
    * Diffie - Hellman Key Exchange
    * Massey - Omura System
 
-* Elliptic Curve Cryptography
-   * Elliptic Curves
+* [Elliptic Curve Cryptography](https://github.com/MovieStiles/Cryptography/tree/master/Elliptic%20Curves#elliptic-curve-cryptography)
+   * [Elliptic Curves](https://github.com/MovieStiles/Cryptography/tree/master/Elliptic%20Curves#elliptic-curves)
    * Diffie - Hellman using Elliptic Curves
 
 * Knapsack Cryptosystem
