@@ -156,6 +156,7 @@ Suppose Alice and Bob want to share a key.  The Diffie-Helman system allows them
 4. Alice calculates ![equation](http://latex.codecogs.com/gif.latex?K%3D%28q^b%29^amod%28p%29) and Bob calculates ![equation](http://latex.codecogs.com/gif.latex?K%3D%28q^a%29^bmod%28p%29).  Both of these come out to the same number, which is the key they share.
 
 Any outside attacker has no knowledge of a, b, or the shared key.  They do know that the final shared key is the same, so the problem they have to solve is: ![equation](http://latex.codecogs.com/gif.latex?A^amod%28p%29%3DB^bmod%28p%29), where they know A, B, and p.  This turns out to be a very difficult problem to solve with large numbers.
+
 ---
 
 ##Other Definitions
