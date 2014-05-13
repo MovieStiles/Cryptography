@@ -10,6 +10,7 @@ A very large part of why this works is because the math is done with really real
   * [Exponential Cipher](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#exponential-cipher)
   * [RSA Algorithm](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#rsa-algorithm)
   * [Signature Authentication](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#signature-authentication)
+  * [Diffie-Hellman Key Exchange](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#diffie-hellman-key-exchange)
 
 * [Other Definitions](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#other-definitions)
   * [Euler's Totient Function](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#eulers-totient-function)
@@ -138,6 +139,23 @@ The basic (and very simplified) premise is as follows if Alice wants to send a s
 2. Next she encrypts it with Bob's public key, forming e2(d1(S)) and appends it to her encrypted message to Bob: e2(M).
 3. Bob receives it and verifies that it's Alice's signature by first applying his private key, resulting in d1(S), then applying Alice's public key, decrypting the signature completely.  He can then verify that it matches her known signature.
 
+##Diffie-Hellman Key Exchange
+
+Suppose Alice and Bob want to share a key.  The Diffie-Helman system allows them to do this as follows:
+
+1. Choose a (possibly public) large prime, p, and an arbitrary integer, q, such that q < p.
+
+  1. We call q the base of the system.
+
+2. Alice and Bob choose integers a and b such that 0 < a, b < p.  There are private keys.
+
+  1. Alice chooses a while Bob chooses b.
+
+3. Alice and Bob compute ![equation](http://latex.codecogs.com/gif.latex?A=q^amod%28p%29) and ![equation](http://latex.codecogs.com/gif.latex?B=q^bmod%28p%29) respectively, and exchange these values.  These are their public keys.
+
+4. Alice calculates ![equation](http://latex.codecogs.com/gif.latex?K%3D%28q^b%29^amod%28p%29) and Bob calculates ![equation](http://latex.codecogs.com/gif.latex?K%3D%28q^a%29^bmod%28p%29).  Both of these come out to the same number, which is the key they share.
+
+Any outside attacker has no knowledge of a, b, or the shared key.  They do know that the final shared key is the same, so the problem they have to solve is: ![equation](http://latex.codecogs.com/gif.latex?A^amod%28p%29%3DB^bmod%28p%29), where they know A, B, and p.  This turns out to be a very difficult problem to solve with large numbers.
 ---
 
 ##Other Definitions

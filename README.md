@@ -29,7 +29,7 @@ Some of these include pieces of code that I found elsewhere, which I credit appr
    * [Exponential Cipher](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#exponential-cipher)
    * [RSA Algorithm](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#rsa-algorithm)
    * [Signature Authentication](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#signature-authentication)
-   * Diffie - Hellman Key Exchange
+   * [Diffie-Hellman Key Exchange](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#diffie-hellman-key-exchange)
    * Massey - Omura System
 
 * [Elliptic Curve Cryptography](https://github.com/MovieStiles/Cryptography/tree/master/Elliptic%20Curves#elliptic-curve-cryptography)
