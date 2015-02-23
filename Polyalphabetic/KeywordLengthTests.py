@@ -148,7 +148,7 @@ def friedmanTest(mLength, ic):
 #
 #Return:  The result of the equation rounded to 3 decimal places.
 ##
-def friedmanTest(cipherText):
+def friedmanTestOnMessage(cipherText):
     mLength = len(cipherText.replace(' ', ''))
     ic = findIndexOfCoincidence(cipherText)
 

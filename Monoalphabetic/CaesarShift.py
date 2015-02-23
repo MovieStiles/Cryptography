@@ -12,7 +12,7 @@ def caesarShift(message, key, encrypt = True):
         The resulting message.
     """
     message = message.lower().replace(' ', '')
-    alphabet = string.lowercase
+    alphabet = string.ascii_lowercase
     newMessage = ""
 
     #Change shift direction depending on encrypting or decrypting
@@ -31,21 +31,26 @@ def caesarShiftStringOps(message, key, encrypt = True):
         in C and therefore somewhat faster.  Found on Stack Overflow.
     """
     message = message.lower().replace(' ', '')
-    alphabet = string.lowercase
+    alphabet = string.ascii_lowercase
 
     if not encrypt:
         key = -key
 
     shiftedAlphabet = alphabet[key:] + alphabet[:key]
-    return message.translate(string.maketrans(alphabet, shiftedAlphabet))
+    return message.translate(str.maketrans(alphabet, shiftedAlphabet))
 
 def test():
     """A small function to test the outputs of the methods in this file.
     """
-    print caesarShift("Test message", 1)
-    print caesarShift("uftunfttbhf", 1, False)
-    print caesarShiftStringOps("Test message", 1)
-    print caesarShiftStringOps("uftunfttbhf", 1, False)
+    print(caesarShift("Test message", 1))
+    print(caesarShift("uftunfttbhf", 1, False))
+    print(caesarShiftStringOps("Test message", 1))
+    print(caesarShiftStringOps("uftunfttbhf", 1, False))
+
+############################################
+
+# Run the test method
+test()
 
 #Output:
 #uftunfttbhf

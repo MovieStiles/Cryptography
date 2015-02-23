@@ -1,3 +1,4 @@
+import string
 from LetterFrequency import calcLetterFrequency
 
 ##
@@ -13,13 +14,17 @@ from LetterFrequency import calcLetterFrequency
 ##
 def vignereCipherEncrypt(plainText, keyword):
     keyword = keyword.lower().replace(' ', '')
+    alphabet = string.ascii_lowercase
     cipherText = ""
 
     #Loop through the message and shift each letter based on the keyword
     for i in range(0, len(plainText)):
-        #Take the ordinal value of the characters, add them together, then convert the sum
-        # back to a character.
-        cipherText += chr((ord(plainText[i]) + ord(keyword[i % len(keyword)])) % 26 + 85)
+        #Find each letter's numeric index
+        plainTextIndex = alphabet.find(plainText[i])
+        #Make sure we loop through the keyword
+        keywordIndex = alphabet.find(keyword[i % len(keyword)])
+
+        cipherText += alphabet[(plainTextIndex + keywordIndex) % 26]
 
     return cipherText
 
@@ -107,8 +112,10 @@ def analyzeSubMessages(ciphertext, kwLength):
     return possibleLetters
 
 def test():
-    print vignereCipherEncrypt("bluecheese", "eat")
-    print vignereCipherDecrypt(vignereCipherEncrypt("bluecheese", "eat"), "eat")
+    print(vignereCipherEncrypt("diglettdigdiglettdig", "trio"))
+    print(vignereCipherDecrypt(vignereCipherEncrypt("diglettdigdiglettdig", "trio"), "trio"))
+
+test()
 
 #Output:
 #flnicaieli

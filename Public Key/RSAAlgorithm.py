@@ -1,4 +1,5 @@
-import ExponentialCipher
+from .ExponentialCipher import exponentialCipherEncode
+from .ExponentialCipher import exponentialCipherDecode
 
 ##
 #RSAEncode
@@ -18,7 +19,7 @@ import ExponentialCipher
 #Return: The resulting ciphertext.
 ##
 def RSAEncode(plaintext, key, p, mode, q, aIsZero = True):
-    return ExponentialCipher.exponentialCipherEncode(plaintext, key, p, mode, q, aIsZero)
+    return exponentialCipherEncode(plaintext, key, p, mode, q, aIsZero)
 
 ##
 #RSAEncode
@@ -40,4 +41,4 @@ def RSAEncode(plaintext, key, p, mode, q, aIsZero = True):
 #Return: The resulting ciphertext.
 ##
 def RSADecode(ciphertext, key, p, mode, q, isDecryptionKey = True, subSize = None, aIsZero = True):
-    return ExponentialCipher.exponentialCipherDecode(ciphertext, key, p, mode, isDecryptionKey, subSize, q, aIsZero)
+    return exponentialCipherDecode(ciphertext, key, p, mode, isDecryptionKey, subSize, q, aIsZero)

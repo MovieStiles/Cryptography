@@ -7,6 +7,26 @@ from fractions import gcd
 normAlphabetKeys = [3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25]
 
 ##
+#getMultiplcativeKeys
+#Description: Given a length of some alphabet, calculate all the
+# valid multiplicative cipher keys that alphabet can have.
+#
+#Parameters:
+#   alphabetLength - The length of the alphabet
+#
+#Return: A list of all the key values.
+##
+def multiplicativeKeyList(alphabetLength):
+    keyList = []
+    #Start at 2 because 0 and 1 are never valid keys
+    for i in range(2, alphabetLength):
+        #Keep the key values if the gcd of the two numbers is one.
+        if gcd(i, alphabetLength) == 1:
+            keyList.append(i)
+
+    return keyList
+
+##
 #multiplcativeKeyCount
 #Description: Given a length of some alphabet, calculate how many
 # valid multiplicative cipher keys that alphabet can have.
@@ -36,41 +56,26 @@ def multiplicativeKeyCount(alphabetLength, keepList = True):
         return keyCount, None
 
 ##
-#getMultiplcativeKeys
-#Description: Given a length of some alphabet, calculate all the
-# valid multiplicative cipher keys that alphabet can have.
-#
-#Parameters:
-#   alphabetLength - The length of the alphabet
-#
-#Return: A list of all the key values.
-##
-def multiplicativeKeyCount(alphabetLength):
-    keyList = []
-    #Start at 2 because 0 and 1 are never valid keys
-    for i in range(2, alphabetLength):
-        #Keep the key values if the gcd of the two numbers is one.
-        if gcd(i, alphabetLength) == 1:
-            keyList.append(i)
-
-    return keyList
-
-##
 #test
 #Description: A small method to test the outputs of the methods in this file.
 ##
 def test():
     keys = multiplicativeKeyCount(26)
-    print "Number of keys: ", keys[0]
-    print "List of keys: ", keys[1]
+    print("Number of keys: ", keys[0])
+    print("List of keys: ", keys[1])
 
     keys = multiplicativeKeyCount(26, False)
-    print "Number of keys: ", keys[0]
-    print "List of keys: ", keys[1]
+    print("Number of keys: ", keys[0])
+    print("List of keys: ", keys[1])
 
     keys = multiplicativeKeyCount(42)
-    print "Number of keys: ", keys[0]
-    print "List of keys: ", keys[1]
+    print("Number of keys: ", keys[0])
+    print("List of keys: ", keys[1])
+
+############################################
+
+# Run the test method
+test()
 
 #Output:
 #Number of keys:  11

@@ -15,7 +15,7 @@ import string
 ##
 def keywordCipher(message, keyword, keyShift = 0, encrypt = True):
     message = message.lower().replace(' ', '')
-    alphabet = string.lowercase
+    alphabet = string.ascii_lowercase
 
     #First, remove repeated characters from the keyword.
     #If anyone reading this can do it faster than O(n^2), let me know.
@@ -39,6 +39,6 @@ def keywordCipher(message, keyword, keyShift = 0, encrypt = True):
     #But that's just to make what's going on more clear.  I think we can move on
     # for efficiency sake by now.
     if encrypt:
-        return message.translate(string.maketrans(alphabet, newAlpha))
+        return message.translate(str.maketrans(alphabet, newAlpha))
     else:
-        return message.translate(string.maketrans(newAlpha, alphabet))
+        return message.translate(str.maketrans(newAlpha, alphabet))

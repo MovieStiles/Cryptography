@@ -17,7 +17,7 @@ def multiplicativeCipher(message, key, encrypt = True, aIsZero = True):
         The resulting message.
     """
     message = message.lower().replace(' ', '')
-    alphabet = string.lowercase
+    alphabet = string.ascii_lowercase
     newMessage = ""
 
     #Switch to the multiplicative inverse if decrypting
@@ -79,14 +79,20 @@ def findLikelyKeys(message, aIsZero = True):
 def test():
     """A small function to test the outputs of the methods in this file.
     """
-    print multiplicativeCipher("This is a test message", 5)
-    print multiplicativeCipher("rjomomarumriummaeu", 5, False)
-    print multiplicativeCipher("This is a test message", 6)
-    print multiplicativeCipher("This is a test message", 5, True, False)
-    print multiplicativeCipher("vnsqsqevyqvmyqqeiy", 5, False, False)
+    print(multiplicativeCipher("This is a test message", 5))
+    print(multiplicativeCipher("rjomomarumriummaeu", 5, False))
+    print(multiplicativeCipher("This is a test message", 6))
+    print(multiplicativeCipher("This is a test message", 5, True, False))
+    print(multiplicativeCipher("vnsqsqevyqvmyqqeiy", 5, False, False))
 
     for keyAndVal in findLikelyKeys("rjomomarumriummaeu").items():
-        print "Decode Key: ", keyAndVal[0], "   Resulting message: ", keyAndVal[1]
+        print("Decode Key: ", keyAndVal[0], "   Resulting message: ", keyAndVal[1])
+
+
+############################################
+
+# Run the test method
+test()
 
 #Output:
 #rjomomarumriummaeu

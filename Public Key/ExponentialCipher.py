@@ -69,7 +69,7 @@ def calcSubMessageSize(p, mode):
 #Return: The list of submessages.
 ##
 def splitMessageAndConvert(message, subSize, mode, aIsZero = True):
-    alphabet = string.lowercase
+    alphabet = string.ascii_lowercase
     messagePieces = []
     messagePiece = ""
     i = 0
@@ -124,23 +124,23 @@ def splitMessageAndConvert(message, subSize, mode, aIsZero = True):
 ##
 def exponentialCipherEncode(plaintext, key, p, mode, q = None, aIsZero = True):
     if not isPrime(p):
-        print "ERROR: exponentialCipherEncode: Third argument must be a prime number."
+        print("ERROR: exponentialCipherEncode: Third argument must be a prime number.")
         return
 
     if q is None:
         n = p
         phi = p - 1
         if gcd(key, phi) != 1:
-            print "ERROR: exponentialCipherEncode: Key of ", key, " is not valid."
+            print("ERROR: exponentialCipherEncode: Key of ", key, " is not valid.")
             return
     else:
         if not isPrime(q):
-            print "ERROR: exponentialCipherEncode: Fifth argument must be a prime number."
+            print("ERROR: exponentialCipherEncode: Fifth argument must be a prime number.")
             return
         n = p*q
         phi = (p - 1)*(q - 1)
         if gcd(key, phi) != 1:
-            print "ERROR: exponentialCipherEncode: Key of ", key, " is not valid."
+            print("ERROR: exponentialCipherEncode: Key of ", key, " is not valid.")
             return
 
     #If we're using the alphabetic indices, we need to clean the message
@@ -189,27 +189,27 @@ def exponentialCipherEncode(plaintext, key, p, mode, q = None, aIsZero = True):
 ##
 def exponentialCipherDecode(ciphertext, key, p, mode, isDecryptionKey = True, subSize = None, q = None, aIsZero = True):
     if not isPrime(p):
-        print "ERROR: exponentialCipherEncode: Third argument must be a prime number."
+        print("ERROR: exponentialCipherEncode: Third argument must be a prime number.")
         return
 
     if q is None:
         n = p
         phi = p - 1
         if gcd(key, phi) != 1:
-            print "ERROR: exponentialCipherDecode: Key of ", key, " is not valid."
+            print("ERROR: exponentialCipherDecode: Key of ", key, " is not valid.")
             return
     else:
         if not isPrime(q):
-            print "ERROR: exponentialCipherDecode: Fifth argument must be a prime number."
+            print("ERROR: exponentialCipherDecode: Fifth argument must be a prime number.")
             return
         n = p*q
         phi = (p - 1)*(q - 1)
         if gcd(key, phi) != 1 and not isDecryptionKey:
-            print "ERROR: exponentialCipherDecode: Key of ", key, " is not valid."
+            print("ERROR: exponentialCipherDecode: Key of ", key, " is not valid.")
             return
 
     ciphertext.lower().replace(' ', '')
-    alphabet = string.lowercase
+    alphabet = string.ascii_lowercase
 
     #Calculate the decryption key if needed
     if not isDecryptionKey:
@@ -221,7 +221,8 @@ def exponentialCipherDecode(ciphertext, key, p, mode, isDecryptionKey = True, su
 
     #Break the message up into equal pieces
     #No need for any conversion since the ciphertext is already numbers.
-    messagePieces = re.findall('.{' + str(subSize) + '}', ciphertext)
+    pattern = '.{' + str(subSize) + '}'
+    messagePieces = re.findall(pattern, ciphertext)
 
     #Now take each submessage and create the ciphertext.
     plaintext = ""
@@ -251,4 +252,8 @@ def exponentialCipherDecode(ciphertext, key, p, mode, isDecryptionKey = True, su
 
     return plaintext
 
-print exponentialCipherDecode("125246", 33, 71, 0, False, 2, None, False)
+def test():
+    print(exponentialCipherDecode("125246", 33, 71, 0, False, 2, None, False))
+
+#Output:
+#sun
