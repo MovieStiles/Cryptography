@@ -4,12 +4,13 @@ Public key cryptography is based on the idea that factoring very large numbers i
 
 The basic problem is this:  Suppose E is an elliptic curve and Q is a point on E.  The discrete log problem to the base Q is the problem: Given P is in E, find k such that P = kQ if such k exists.  However, addition, and therefore multiplication, works differently in elliptic curves, so we'll need to define that.
 
-For example, if we wanted to solve the equation k(2,1)=(2,4) over mod 5, we're essentially asking how many times the point (2,1) needs to be added to itself to becomes (2,4) over mod 5.  Once you get into very large numbers, this problem becomes incredibly difficult.  Just try solving that problem after reading the sections below on adding points.  It's more cumbersome than it looks.
+For example, if we wanted to solve the equation k(2,1)=(2,4) over mod 5, we're essentially asking how many times the point (2,1) needs to be added to itself to becomes (2,4) over mod 5.  Once you get into very large numbers, this problem becomes incredibly difficult.  Just try solving that problem by hand after reading the sections below on adding points.  It's more cumbersome than you'd think.
 
 * [Elliptic Curves](https://github.com/MovieStiles/Cryptography/tree/master/Elliptic%20Curves#elliptic-curves)
    * [Finding the Points on an Elliptic Curve](https://github.com/MovieStiles/Cryptography/tree/master/Elliptic%20Curves#finding-the-points-on-an-elliptic-curve)
    * [Adding Points (Geometrically)](https://github.com/MovieStiles/Cryptography/tree/master/Elliptic%20Curves#adding-points-geometrically)
    * [Adding Points (Equations)](https://github.com/MovieStiles/Cryptography/tree/master/Elliptic%20Curves#adding-points-equations)
+* Diffie - Hellman using Elliptic Curves
 
 ##Elliptic Curves
 
@@ -61,9 +62,7 @@ There are four cases to consider:
 
    Where ![equation](http://latex.codecogs.com/gif.latex?m%3D\\frac{y_2-y_1}{x_2-x_1})
 
-2. If ![equation](http://latex.codecogs.com/gif.latex?x_1%3Dx_2%2C%20y_1\\neq%20y_2), then the answer is infinity.
-
-3. If ![equation](http://latex.codecogs.com/gif.latex?P_1%3DP_2%2C%20y_1\\neq%200)
+2. If ![equation](http://latex.codecogs.com/gif.latex?P_1%3DP_2%2C%20y_1\\neq%200)
 
    ![equation](http://latex.codecogs.com/gif.latex?x_3%3Dm^2-2x_1)
 
@@ -71,4 +70,28 @@ There are four cases to consider:
 
    Where ![equation](http://latex.codecogs.com/gif.latex?m%3D\\frac{3x_1^2&plus;A}{2y_1})
 
+3. If ![equation](http://latex.codecogs.com/gif.latex?x_1%3Dx_2%2C%20y_1\\neq%20y_2), then the answer is infinity.
+
 4. If ![equation](http://latex.codecogs.com/gif.latex?P_1%3DP_2%2C%20y_1=%200), then the answer is infinity.
+
+##Diffie - Hellman using Elliptic Curves
+
+Let's say Alice and Bob want to calculate a shared key.  They would do the following:
+
+1. Fix an elliptic curve E, and let P be some fixed point in E.  This information is public.
+
+2. Alice and Bob choose private integer keys, a and b respectively.
+
+3. Alice calculates Q = aP and Bob calculates R = bP and exchange them.
+
+4. Alice calculates aR = abP and Bob calculates bQ = baP = abP.  abP is the shared key.
+
+####Example: ![equation](http://latex.codecogs.com/gif.latex?E:%20y^2=x^3+9x+17) over mod 23
+
+Suppose we choose P = (16, 5)
+
+Alice chooses a = 2, and Bob chooses b = 3
+
+Calculating 2P:
+
+![equation](http://latex.codecogs.com/gif.latex?m%20%3D%20\frac{3x^2&plus;A}{2y}%3D\frac{3*16^2&plus;9}{2*5}%3D\frac{777}{10}%3D\frac{18}{10}%3D\frac{9}{5})
