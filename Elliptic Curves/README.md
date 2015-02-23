@@ -10,7 +10,7 @@ For example, if we wanted to solve the equation k(2,1)=(2,4) over mod 5, we're e
    * [Finding the Points on an Elliptic Curve](https://github.com/MovieStiles/Cryptography/tree/master/Elliptic%20Curves#finding-the-points-on-an-elliptic-curve)
    * [Adding Points (Geometrically)](https://github.com/MovieStiles/Cryptography/tree/master/Elliptic%20Curves#adding-points-geometrically)
    * [Adding Points (Equations)](https://github.com/MovieStiles/Cryptography/tree/master/Elliptic%20Curves#adding-points-equations)
-* Diffie - Hellman using Elliptic Curves
+* [Diffie - Hellman using Elliptic Curves](https://github.com/MovieStiles/Cryptography/tree/master/Elliptic%20Curves#diffie---hellman-using-elliptic-curves)
 
 ##Elliptic Curves
 
@@ -94,4 +94,4 @@ Alice chooses a = 2, and Bob chooses b = 3
 
 Calculating 2P:
 
-![equation](http://latex.codecogs.com/gif.latex?m%20%3D%20\frac{3x^2&plus;A}{2y}%3D\frac{3*16^2&plus;9}{2*5}%3D\frac{777}{10}%3D\frac{18}{10}%3D\frac{9}{5})
+![equation](http://latex.codecogs.com/gif.latex?m%20%3D%20\\frac{3x^2&plus;A}{2y}%3D\\frac{3*16^2&plus;9}{2*5}%3D\\frac{777}{10}%3D\\frac{18}{10}%3D\\frac{9}{5})
