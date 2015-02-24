@@ -86,12 +86,32 @@ Let's say Alice and Bob want to calculate a shared key.  They would do the follo
 
 4. Alice calculates aR = abP and Bob calculates bQ = baP = abP.  abP is the shared key.
 
-####Example: ![equation](http://latex.codecogs.com/gif.latex?E:%20y^2=x^3+9x+17) over mod 23
+####Example: ![equation](http://latex.codecogs.com/gif.latex?E:%20y^2=x^3+4x+8) over mod 23
 
-Suppose we choose P = (16, 5)
+Suppose we choose P = (2, 1)
 
 Alice chooses a = 2, and Bob chooses b = 3
 
 Calculating 2P:
 
-![equation](http://latex.codecogs.com/gif.latex?m%20%3D%20\\frac{3x^2&plus;A}{2y}%3D\\frac{3*16^2&plus;9}{2*5}%3D\\frac{777}{10}%3D\\frac{18}{10}%3D\\frac{9}{5})
+![equation](http://latex.codecogs.com/gif.latex?m%3D\\frac{3x_1^2&plus;A}{2y_1}%3D%283x_1^2&plus;A%29*%282y_1%29^{-1}%3D%283*2^2&plus;4%29*%282*1%29^{-1}mod%2823%29%3D%2816*12%29mod%2823%29%3D192mod%2823%29%3D8)
+
+![equation](http://latex.codecogs.com/gif.latex?x_3%3Dm%5E2-2x%3D8%5E2-2*2%3D32%20mod%20%2823%29%3D14)
+
+![equation](http://latex.codecogs.com/gif.latex?y_3%3Dm%28x_1-x_3%29-y%3D8%282-14%29-1%3D-97mod%2823%29%3D18)
+
+So 2P = (14, 18) = Q
+
+Now we have to calculate 3P:
+
+3P = 2P + P = (2, 1) + (14, 18)
+
+![equation](http://latex.codecogs.com/gif.latex?m%3D%5Cfrac%7By_2-y_1%7D%7Bx_2-x_1%7D%3D%28y_2-y_1%29*%28x_2-x_1%29%5E%7B-1%7D%3D%2818-1%29*%2814-2%29%5E%7B-1%7Dmod%2823%29%3D%2817*2%29mod%2823%29%3D11)
+
+![equation](http://latex.codecogs.com/gif.latex?x_3%3Dm%5E2-x_1-x_2%3D11%5E2-2-14%3D%28121-16%29mod%2823%29%3D13)
+
+![equation](http://latex.codecogs.com/gif.latex?y_3%3Dm%28x_1-x_3%29-y_1%3D11%282-13%29-1%3D-122mod%2823%29%3D16)
+
+Doing the above steps again with the new numbers comes out to 3P = (13, 16) = R
+
+Hopefully you can see from this how this can become an unwieldy process, even with small numbers.
