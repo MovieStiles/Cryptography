@@ -127,7 +127,7 @@ And so on.
 
 ####Encryption Example: Key = holdthedoor
 
-potato -> holdter
+holdthedoor -> holdter
 
 | Table | | | | | | | | | | |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -135,7 +135,7 @@ potato -> holdter
 | Maps To | h | o | d | t | e | r | a | b | c | f |
 
 Now to actually encrypt a word with this:
-"Here is a test message for your enjoyment" -> "nymybocpyopgyoociytjmwjqmyhdjwgyhp"
+"Here is a super special awesome message" -> "atptbqhqumtpqmtlbhghwtqkititqqhrt"
 
 ####Decryption
 
@@ -153,14 +153,14 @@ We can define a keyword cipher with key(W, X) as follows:
 2. Write a reduced keyword letter for letter beneath the plaintext alphabet stating at X.
 3. Write remaining letters in alphabetical order.
 
-####Encryption Example: Key = (crazytrain, d)
+####Encryption Example: Key = (holdthedoor, d)
 
-crazytrain -> crazytin
+holdthedoor -> holdter
 
 | Table | | | | | | | | | | |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Plaintext Letter | D | E | F | G | H | I | J | K | L | M |
-| Maps To | c | r | a | z | y | t | i | n | b | d |
+| Maps To | h | o | d | t | e | r | a | b | c | f |
 
 ---
 

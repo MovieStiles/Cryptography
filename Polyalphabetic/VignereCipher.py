@@ -111,5 +111,5 @@ def test():
 test()
 
 # Output:
-# flnicaieli
-# bluecheese
+# wzozxkbrbxlwzcmhmuqu
+# diglettdigdiglettdig

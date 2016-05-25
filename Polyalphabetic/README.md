@@ -16,15 +16,15 @@ Below are explanations for each of the ciphers implemented in this folder.  It a
 
 A Vignere cipher uses a keyword to determine the multiple substitution alphabets used in encryption.
 
-####Encryption Example: Keyword = "eat"  Message = "blue cheese"
+####Encryption Example: Keyword = "trio"  Message = "diglett dig"
 
 To encrypt, we shift each letter by distance x-1 where x is the position of the keyword letter in the alphabet.
 
 |Table       |   |   |   |   |   |   |   |   |   |   |
 |:----------:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| Plaintext  | B | L | U | E | C | H | E | E | S | E |
-| Keyword    | E | A | T | E | A | T | E | A | T | E |
-| Ciphertext | F | L | N | I | C | A | I | E | L | I |
+| Plaintext  | D | I | G | L | E | T | T | D | I | G |
+| Keyword    | T | R | I | O | T | R | I | O | T | R |
+| Ciphertext | W | Z | O | Z | X | K | B | R | B | X |
 
 ####Decryption
 To decrypt, we first need to ask if this is even a Vignere cipher in the first place.
@@ -37,14 +37,14 @@ As for finding that keyword length...well, that's going to take a lot more work.
 
 ##Kasiski Test
 
-| Table | | | | | | | | | | | | | | | | | | |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Plaintext | c | h | e | e | s | e | c | h | e | e | s | e | c | h | e | e | s | e |
-| Keyword | b | l | u | e | b | l | u | e | b | l | u | e | b | l | u | e | b | l |
-| Ciphertext | **D** | **S** | **Y** | **I** | **T** | **P** | W | L | F | P | M | I | **D** | **S** | **Y** | **I** | **T** | **P** |
+|Table       |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+|:----------:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| Plaintext  | b | a | d | g | e | r | b | a | d | g | e | r | b | a | d | g | e | r |
+| Keyword    | c | a | t | c | a | t | c | a | t | c | a | t | c | a | t | c | a | t |
+| Ciphertext | D | A | W | I | E | K | D | A | W | I | E | K | D | A | W | I | E | K |
 
 If a string of characters appears repeatedly in a ciphertext message, it is possible (though not certain) that the distance between the occurrences is a multiple of the keyword.  We see repetition in the ciphertext because the keyword synchronizes with the plaintext again.  While this example is rather artificial, given a lengthy enough message it’s reasonable to think that this could happen with repeated trigraphs.
-In this case, the distance between the two repitions is 12 (from the start of one to the start of the other), which is indeed a multiple of our key length of 4.
+In this case, the distance between the two repitions is 6 (from the start of one to the start of the other), which is indeed a multiple of our key length of 3.
 
 You will hopefully find multiple instances of this happening, so you narrow your possibilities down to some of the common factors between the multiple distances.
 
