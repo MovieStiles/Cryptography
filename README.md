@@ -34,7 +34,7 @@ Some of these include pieces of code that I found elsewhere, which I credit appr
 
 * [Elliptic Curve Cryptography](https://github.com/MovieStiles/Cryptography/tree/master/Elliptic%20Curves#elliptic-curve-cryptography)
    * [Elliptic Curves](https://github.com/MovieStiles/Cryptography/tree/master/Elliptic%20Curves#elliptic-curves)
-   * Diffie - Hellman using Elliptic Curves
+   * [Diffie - Hellman using Elliptic Curves](https://github.com/VestOfHolding/Cryptography/tree/master/Elliptic%20Curves#diffie---hellman-using-elliptic-curves)
 
 * Knapsack Cryptosystem
 
