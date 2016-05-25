@@ -116,23 +116,23 @@ We can define a keyword cipher with key W as follows:
 3. Write remaining letters in alphabetical order.
 4. Perform the same letter substitution you should be used to by now.
 
-For example: Key = fox
+For example: Key = box
 
 |Table | | | | | | | |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Plaintext Letter | A | B | C | D | E | F | G |
-| Maps To | f | o | x | a | b | c | d |
+| Maps To | b | o | x | a | c | d | e |
 
 And so on.
 
-####Encryption Example: Key = crazytrain
+####Encryption Example: Key = holdthedoor
 
-crazytrain -> crazytin
+potato -> holdter
 
 | Table | | | | | | | | | | |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Plaintext Letter | A | B | C | D | E | F | G | H | I | J |
-| Maps To | c | r | a | z | y | t | i | n | b | d |
+| Maps To | h | o | d | t | e | r | a | b | c | f |
 
 Now to actually encrypt a word with this:
 "Here is a test message for your enjoyment" -> "nymybocpyopgyoociytjmwjqmyhdjwgyhp"

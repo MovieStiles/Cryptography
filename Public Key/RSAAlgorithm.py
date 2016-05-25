@@ -1,12 +1,13 @@
 from .ExponentialCipher import exponentialCipherEncode
 from .ExponentialCipher import exponentialCipherDecode
 
+
 ##
-#RSAEncode
-#Description: Given a message, key, and mode, encrypt the message with the RSA algorithm
+# RSAEncode
+# Description: Given a message, key, and mode, encrypt the message with the RSA algorithm
 # and return the resulting message.
 #
-#Parameters:
+# Parameters:
 #   plaintext - The message to encode
 #   key - The key to encode the message with.  Must satisfy the equation: gcd(key, p-1) = 1
 #   p - The prime number to mod the message by.
@@ -16,17 +17,18 @@ from .ExponentialCipher import exponentialCipherDecode
 #   q - A second prime number to be multiplied with the first to create a new value, n.
 #   aIsZero - Whether the index of A starts at 0 or not in mode 0. (default: True)
 #
-#Return: The resulting ciphertext.
+# Return: The resulting ciphertext.
 ##
-def RSAEncode(plaintext, key, p, mode, q, aIsZero = True):
+def RSAEncode(plaintext, key, p, mode, q, aIsZero=True):
     return exponentialCipherEncode(plaintext, key, p, mode, q, aIsZero)
 
+
 ##
-#RSAEncode
-#Description: Given some ciphertext that has been encrypted using the RSA algorithm,
+# RSAEncode
+# Description: Given some ciphertext that has been encrypted using the RSA algorithm,
 # decrypt the ciphertext and return the resulting plaintext.
 #
-#Parameters:
+# Parameters:
 #   plaintext - The message to decode
 #   key - The key to decode the message with.  Must satisfy the equation: gcd(key, p-1) = 1
 #   p - The prime number to mod the message by.
@@ -38,7 +40,7 @@ def RSAEncode(plaintext, key, p, mode, q, aIsZero = True):
 #   subSize - The size of each submessage, which you may know ahead of time. (default: None)
 #   aIsZero - Whether the index of A starts at 0 or not in mode 0. (default: True)
 #
-#Return: The resulting ciphertext.
+# Return: The resulting ciphertext.
 ##
-def RSADecode(ciphertext, key, p, mode, q, isDecryptionKey = True, subSize = None, aIsZero = True):
+def RSADecode(ciphertext, key, p, mode, q, isDecryptionKey=True, subSize=None, aIsZero=True):
     return exponentialCipherDecode(ciphertext, key, p, mode, isDecryptionKey, subSize, q, aIsZero)

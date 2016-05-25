@@ -1,5 +1,6 @@
-from MultiplicativeCipher import multiplicativeCipher
-from CaesarShift import caesarShiftStringOps
+from Monoalphabetic.MultiplicativeCipher import multiplicativeCipher
+from Monoalphabetic.CaesarShift import caesarShiftStringOps
+
 
 def affineEncode(keys, message, addFirst, aIsZero):
     """Given a key tuple and a message, encode a message with an affine cipher.
@@ -33,10 +34,10 @@ def affineDecode(keys, message, addFirst, aIsZero):
         addFirst: Whether the additive cipher is first in the encryption or not. (default: True)
         aIsZero: Whether or not the index of A is assumed to be zero. (default: True)
     """
-    #When additive is done first in encryption, multiplicative needs to be
+    # When additive is done first in encryption, multiplicative needs to be
     # done first in decryption.
     if addFirst:
-        #Both of these functions assume that the key is the decryption key,
+        # Both of these functions assume that the key is the decryption key,
         # so that's why this function does as well.
         message = multiplicativeCipher(message, keys[1], False, aIsZero)
         message = caesarShiftStringOps(message, keys[0], False)

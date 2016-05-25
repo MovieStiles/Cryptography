@@ -7,14 +7,15 @@
 import re
 from IndexOfCoincidence import findIndexOfCoincidence
 
-###############################################################################
-##                      Kasiski Test Code Section                            ##
-##   Code in this section from: http://inventwithpython.com/hacking/source/  ##
+#############################################################################
+#                      Kasiski Test Code Section                            #
+#   Code in this section from: http://inventwithpython.com/hacking/source/  #
 
 NONLETTERS_PATTERN = re.compile('[^A-Z]')
-SILENT_MODE = False         # if set to True, program doesn't print attempts
-NUM_MOST_FREQ_LETTERS = 4   # attempts this many letters per subkey
-MAX_KEY_LENGTH = 16         # will not attempt keys longer than this
+SILENT_MODE = False  # if set to True, program doesn't print attempts
+NUM_MOST_FREQ_LETTERS = 4  # attempts this many letters per subkey
+MAX_KEY_LENGTH = 16  # will not attempt keys longer than this
+
 
 def findRepeatSequencesSpacings(message):
     # Goes through the message and finds any 3 to 5 letter sequences
@@ -25,7 +26,7 @@ def findRepeatSequencesSpacings(message):
     message = NONLETTERS_PATTERN.sub('', message.upper())
 
     # Compile a list of seqLen-letter sequences found in the message.
-    seqSpacings = {} # keys are sequences, values are list of int spacings
+    seqSpacings = {}  # keys are sequences, values are list of int spacings
     for seqLen in range(3, 6):
         for seqStart in range(len(message) - seqLen):
             # Determine what the sequence is, and store it in seq
@@ -36,12 +37,13 @@ def findRepeatSequencesSpacings(message):
                 if message[i:i + seqLen] == seq:
                     # Found a repeated sequence.
                     if seq not in seqSpacings:
-                        seqSpacings[seq] = [] # initialize blank list
+                        seqSpacings[seq] = []  # initialize blank list
 
                     # Append the spacing distance between the repeated
                     # sequence and the original sequence.
                     seqSpacings[seq].append(i - seqStart)
     return seqSpacings
+
 
 def getUsefulFactors(num):
     # Returns a list of useful factors of num. By "useful" we mean factors
@@ -49,13 +51,13 @@ def getUsefulFactors(num):
     # returns [2, 72, 3, 48, 4, 36, 6, 24, 8, 18, 9, 16, 12]
 
     if num < 2:
-        return [] # numbers less than 2 have no useful factors
+        return []  # numbers less than 2 have no useful factors
 
-    factors = [] # the list of factors found
+    factors = []  # the list of factors found
 
     # When finding factors, you only need to check the integers up to
     # MAX_KEY_LENGTH.
-    for i in range(2, MAX_KEY_LENGTH + 1): # don't test 1
+    for i in range(2, MAX_KEY_LENGTH + 1):  # don't test 1
         if num % i == 0:
             factors.append(i)
             factors.append(int(num / i))
@@ -63,12 +65,14 @@ def getUsefulFactors(num):
         factors.remove(1)
     return list(set(factors))
 
+
 def getItemAtIndexOne(x):
     return x[1]
 
+
 def getMostCommonFactors(seqFactors):
     # First, get a count of how many times a factor occurs in seqFactors.
-    factorCounts = {} # key is a factor, value is how often if occurs
+    factorCounts = {}  # key is a factor, value is how often if occurs
 
     # seqFactors keys are sequences, values are lists of factors of the
     # spacings. seqFactors has a value like: {'GFD': [2, 3, 4, 6, 9, 12,
@@ -88,12 +92,13 @@ def getMostCommonFactors(seqFactors):
         if factor <= MAX_KEY_LENGTH:
             # factorsByCount is a list of tuples: (factor, factorCount)
             # factorsByCount has a value like: [(3, 497), (2, 487), ...]
-            factorsByCount.append( (factor, factorCounts[factor]) )
+            factorsByCount.append((factor, factorCounts[factor]))
 
     # Sort the list by the factor count.
     factorsByCount.sort(key=getItemAtIndexOne, reverse=True)
 
     return factorsByCount
+
 
 def kasiskiExamination(ciphertext):
     # Find out the sequences of 3 to 5 letters that occur multiple times
@@ -120,37 +125,36 @@ def kasiskiExamination(ciphertext):
 
     return allLikelyKeyLengths
 
-##                    End Kasiski Test Code Section                          ##
-###############################################################################
+
+#                    End Kasiski Test Code Section                          #
+#############################################################################
 
 ##
-#friedmanTest
-#Description: Given the length of a message and its index of coincidence,
+# friedmanTest
+# Description: Given the length of a message and its index of coincidence,
 # estimate the length of the keyword used to encrypt it using the Friedman test.
 #
-#Parameters:
+# Parameters:
 #   mLength - The length of the encrypted message
 #   ic - The index of the coincidence of the message
 #
-#Return:  The result of the equation rounded to 3 decimal places.
+# Return:  The result of the equation rounded to 3 decimal places.
 ##
 def friedmanTest(mLength, ic):
-    denominator = (mLength - 1)*ic - 0.038*mLength + 0.065
+    denominator = (mLength - 1) * ic - 0.038 * mLength + 0.065
     return round((0.027 * mLength) / denominator, 3)
 
-##
-#friedmanTest
-#Description: Given a message, estimate the length of the keyword used to encrypt it
-# using the Friedman test.
-#
-#Parameters:
-#   cipherText - The encrypted message
-#
-#Return:  The result of the equation rounded to 3 decimal places.
-##
+
 def friedmanTestOnMessage(cipherText):
+    """Given a message, estimate the length of the keyword used to encrypt it using the Friedman test.
+
+    Args:
+        cipherText - The encrypted message
+
+    Returns:
+        The result of the equation rounded to 3 decimal places."""
     mLength = len(cipherText.replace(' ', ''))
     ic = findIndexOfCoincidence(cipherText)
 
-    denominator = (mLength - 1)*ic - 0.038*mLength + 0.065
+    denominator = (mLength - 1) * ic - 0.038 * mLength + 0.065
     return round((0.027 * mLength) / denominator, 3)

@@ -1,4 +1,4 @@
-from fractions import gcd
+from math import gcd
 
 ##
 # A list of the normal 26-letter alphabet keys.
@@ -6,47 +6,45 @@ from fractions import gcd
 ##
 normAlphabetKeys = [3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25]
 
-##
-#getMultiplcativeKeys
-#Description: Given a length of some alphabet, calculate all the
-# valid multiplicative cipher keys that alphabet can have.
-#
-#Parameters:
-#   alphabetLength - The length of the alphabet
-#
-#Return: A list of all the key values.
-##
+
 def multiplicativeKeyList(alphabetLength):
+    """Given a length of some alphabet, calculate all the valid multiplicative cipher keys that alphabet can have.
+
+    Args:
+        alphabetLength - The length of the alphabet
+
+    Returns:
+        A list of all the key values
+    """
     keyList = []
-    #Start at 2 because 0 and 1 are never valid keys
+    # Start at 2 because 0 and 1 are never valid keys
     for i in range(2, alphabetLength):
-        #Keep the key values if the gcd of the two numbers is one.
+        # Keep the key values if the gcd of the two numbers is one.
         if gcd(i, alphabetLength) == 1:
             keyList.append(i)
 
     return keyList
 
-##
-#multiplcativeKeyCount
-#Description: Given a length of some alphabet, calculate how many
-# valid multiplicative cipher keys that alphabet can have.
-#
-#Parameters:
-#   alphabetLength - The length of the alphabet
-#   keepList - Whether or not to actually keep track of the list of keys
-#
-#Return: A tuple of the key count and the array of key values.
-# The second value is None if keepList is False.
-##
-def multiplicativeKeyCount(alphabetLength, keepList = True):
+
+def multiplicativeKeyCount(alphabetLength, keepList=True):
+    """Given a length of some alphabet, calculate how many valid multiplicative cipher keys that alphabet can have.
+
+    Args:
+        alphabetLength - The length of the alphabet
+        keepList - Whether or not to actually keep track of the list of keys
+
+    Returns:
+        A tuple of the key count and the array of key values.  The second value is None if keepList is False.
+
+    """
     keyCount = 0
     keyList = []
-    #Start at 2 because 1 and 0 are never valid keys
+    # Start at 2 because 1 and 0 are never valid keys
     for i in range(2, alphabetLength):
-        #Inrease the key count if the gcd of the two numbers is one.
+        # Inrease the key count if the gcd of the two numbers is one.
         if gcd(i, alphabetLength) == 1:
             keyCount += 1
-            #Add to the list of keys if we're keeping track of that
+            # Add to the list of keys if we're keeping track of that
             if keepList:
                 keyList.append(i)
 
@@ -55,11 +53,9 @@ def multiplicativeKeyCount(alphabetLength, keepList = True):
     else:
         return keyCount, None
 
-##
-#test
-#Description: A small method to test the outputs of the methods in this file.
-##
+
 def test():
+    """A small method to test the outputs of the methods in this file."""
     keys = multiplicativeKeyCount(26)
     print("Number of keys: ", keys[0])
     print("List of keys: ", keys[1])
@@ -72,15 +68,16 @@ def test():
     print("Number of keys: ", keys[0])
     print("List of keys: ", keys[1])
 
+
 ############################################
 
 # Run the test method
 test()
 
-#Output:
-#Number of keys:  11
-#List of keys:  [3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25]
-#Number of keys:  11
-#List of keys:  None
-#Number of keys:  11
-#List of keys:  [5, 11, 13, 17, 19, 23, 25, 29, 31, 37, 41]
+# Output:
+# Number of keys:  11
+# List of keys:  [3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25]
+# Number of keys:  11
+# List of keys:  None
+# Number of keys:  11
+# List of keys:  [5, 11, 13, 17, 19, 23, 25, 29, 31, 37, 41]
