@@ -11,6 +11,7 @@ A very large part of why this works is because the math is done with really real
   * [RSA Algorithm](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#rsa-algorithm)
   * [Signature Authentication](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#signature-authentication)
   * [Diffie-Hellman Key Exchange](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#diffie-hellman-key-exchange)
+  * [Massey-Omura System](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#massey-omura-system)
 
 * [Other Definitions](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#other-definitions)
   * [Euler's Totient Function](https://github.com/MovieStiles/Cryptography/tree/master/Public%20Key#eulers-totient-function)
@@ -157,6 +158,25 @@ Suppose Alice and Bob want to share a key.  The Diffie-Helman system allows them
 
 Any outside attacker has no knowledge of a, b, or the shared key.  They do know that the final shared key is the same, so the problem they have to solve is: ![equation](http://latex.codecogs.com/gif.latex?A^amod%28p%29%3DB^bmod%28p%29), where they know A, B, and p.  This turns out to be a very difficult problem to solve with large numbers.
 
+##Massey-Omura System
+
+1. Alice and Bob choose a very large prime number, p.
+
+  1. p is a public number
+
+2. Alice and Bob choose integers ![equation](http://latex.codecogs.com/gif.latex?e_1) and ![equation](http://latex.codecogs.com/gif.latex?e_2) that are both smaller than p.
+
+3. Alice and Bob then calculate the multiplicative inverses of ![equation](http://latex.codecogs.com/gif.latex?e_1) and ![equation](http://latex.codecogs.com/gif.latex?e_2).
+
+  1. ![equation](http://latex.codecogs.com/gif.latex?d_1%3D%20e_1%20mod%28%5Cphi%28p%29%29%2C%20d_2%3D%20e_2%20mod%28%5Cphi%28p%29%29)
+
+4. To send a message M to Bob, Alice computes ![equation](http://latex.codecogs.com/gif.latex?M%5E%7Be_1%7Dmod%28p%29)
+
+5. Bob receives that, calculates ![equation](http://latex.codecogs.com/gif.latex?%28M%5E%7Be_1%7D%29%5E%7Be_2%7Dmod%28p%29), and sends it back to Alice.
+
+6. Alice then computes ![equation](http://latex.codecogs.com/gif.latex?%28%28M%5E%7Be_1%7D%29%5E%7Be_2%7D%29%5E%7Bd_1%7D%29mod%28p%29) and sends it back to Bob.
+
+7. Finally, Bob computes ![equation](http://latex.codecogs.com/gif.latex?%28%28%28M%5E%7Be_1%7D%29%5E%7Be_2%7D%29%5E%7Bd_1%7D%29%5E%7Bd_2%7D%29mod%28p%29%20%3D%20M), and there's the original message.
 ---
 
 ##Other Definitions
