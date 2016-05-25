@@ -177,6 +177,7 @@ Any outside attacker has no knowledge of a, b, or the shared key.  They do know 
 6. Alice then computes ![equation](http://latex.codecogs.com/gif.latex?%28%28M%5E%7Be_1%7D%29%5E%7Be_2%7D%29%5E%7Bd_1%7D%29mod%28p%29) and sends it back to Bob.
 
 7. Finally, Bob computes ![equation](http://latex.codecogs.com/gif.latex?%28%28%28M%5E%7Be_1%7D%29%5E%7Be_2%7D%29%5E%7Bd_1%7D%29%5E%7Bd_2%7D%29mod%28p%29%20%3D%20M), and there's the original message.
+
 ---
 
 ##Other Definitions
